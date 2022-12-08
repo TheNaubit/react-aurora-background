@@ -79,6 +79,7 @@ Find me on Twitter: [@thenaubit](https://twitter.com/thenaubit)
 
 ## 💭 Changelog
 
+- **v1.0.3:** Fixed build generation 🔧
 - **v1.0.2:** Fixed demo link 🔧
 - **v1.0.1:** Fixed docs 🔧
 - **v1.0.0:** This is the first public version of the package, let's go! 🚀

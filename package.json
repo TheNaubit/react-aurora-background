@@ -1,6 +1,6 @@
 {
   "name": "@nauverse/react-aurora-background",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "license": "MIT",
   "description": "🌌 React Aurora background component. Lightweight, customizable, beautiful.",
@@ -15,19 +15,19 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build:esm": "tsc -p tsconfig.json && echo '{ \"type\": \"module\" }' > dist/esm/package.json",
-    "build:cjs": "tsc -p tsconfig-cjs.json && echo '{ \"type\": \"commonjs\" }' > dist/cjs/package.json",
+    "build:esm": "tsc -p tsconfig.json && echo { \"type\": \"module\" } > dist/esm/package.json",
+    "build:cjs": "tsc -p tsconfig-cjs.json && echo { \"type\": \"commonjs\" } > dist/cjs/package.json",
     "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:docs",
     "start": "npm run build:docs && npx http-server docs/",
     "build:docs": "npx ts-node scripts/buildDocs.ts",
     "publish": "npm publish --access public"
   },
   "devDependencies": {
-    "@types/node": "^18.11.11",
+    "@types/node": "^18.11.12",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "css-tree": "^2.3.0",
-    "esbuild": "^0.16.2",
+    "esbuild": "^0.16.3",
     "esbuild-css-modules-plugin": "^2.6.3",
     "prettier": "^2.8.1",
     "react": "^18.2.0",

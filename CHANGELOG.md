@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.3
+
+Fixed build generation 🔧
+
 ## v1.0.2
 
 Fixed demo link 🔧
