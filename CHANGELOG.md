@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.5
+
+Fixed optimization in bubble items 🔧
+
 ## v1.0.4
 
 Fixed build generation - part 2 🔧

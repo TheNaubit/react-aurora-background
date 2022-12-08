@@ -39,7 +39,7 @@ export function AuroraBackground({ bgColor, colors, numBubbles, animDuration, bl
         return new Array(_amountBubbles).fill(0).map((_v, index) => {
             const _bubbleColor = _getColorByIndex(index);
 
-            return <BubbleItem index={index} color={_bubbleColor} animDuration={_animDuration} useRandomness={_useRandomness} />
+            return <BubbleItem key={`aurora-bubble-item-${index}`} index={index} color={_bubbleColor} animDuration={_animDuration} useRandomness={_useRandomness} />
         })
 
     }, [numBubbles])
