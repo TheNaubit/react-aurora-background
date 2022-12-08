@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.4
+
+Fixed build generation - part 2 🔧
+
 ## v1.0.3
 
 Fixed build generation 🔧

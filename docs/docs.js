@@ -23126,7 +23126,7 @@
   // src/components/AuroraBackdrop/AuroraBackdrop.tsx
   var import_react = __toESM(require_react());
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-27828-24IPv651drew\react-aurora-background\src\components\AuroraBackdrop\AuroraBackdrop.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-37388-V7g4SeHD426I\react-aurora-background\src\components\AuroraBackdrop\AuroraBackdrop.module.css.js
   var digest = "4019969c87ca2f7811b305edfb8b46ccb2cd3b4a6af1a239d83388c0f6f8e6f7";
   var css = `div._auroraBackdrop_133n1_1 {
   width: 100%;
@@ -23177,7 +23177,7 @@
     return Math.random() * (max - min) + min;
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-27828-95g9gIe3pKka\react-aurora-background\src\components\BubbleItem\BubbleItem.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-37388-53Uyy2P2RL6N\react-aurora-background\src\components\BubbleItem\BubbleItem.module.css.js
   var digest2 = "eb5c68e58e0c2dc371fa7d54443996daced0b601d008a7cca27808597cd19f76";
   var css2 = `div._bubbleItem_5mrt3_1 {
   width: 50%;
@@ -23237,7 +23237,7 @@
     }, _randomnessStyles) });
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-27828-MAlZO1OouBB5\react-aurora-background\src\components\AuroraBackground\AuroraBackground.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-37388-n4lI415mrVrE\react-aurora-background\src\components\AuroraBackground\AuroraBackground.module.css.js
   var digest3 = "51d03d1c4823449bb2e812db736c074853136002176df35ec49b412e96a96a4c";
   var css3 = `div._container_clkvl_1 {
   height: 100vh;
@@ -23305,7 +23305,7 @@ div._gradientWrapper_clkvl_23 {
   // src/components/ChildrenContainer/ChildrenContainer.tsx
   var import_react4 = __toESM(require_react());
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-27828-Pvv6YHuQFGae\react-aurora-background\src\components\ChildrenContainer\ChildrenContainer.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-37388-WD4BlU7MbVg0\react-aurora-background\src\components\ChildrenContainer\ChildrenContainer.module.css.js
   var digest4 = "c10dbf26691a850db8fe0023ca917e5737f31b61dd9748e5766aa5ed8bafa343";
   var css4 = `div._childrenContainer_6g0oz_1 {
   height: 100vh;
@@ -23336,7 +23336,7 @@ div._gradientWrapper_clkvl_23 {
     return /* @__PURE__ */ import_react4.default.createElement("div", { className: ChildrenContainer_module_css_default.childrenContainer }, children);
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-27828-j6V1gu0xI6YY\react-aurora-background\src\components\AuroraBackgroundProvider\AuroraBackgroundProvider.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-37388-VtpyHuvj3PJX\react-aurora-background\src\components\AuroraBackgroundProvider\AuroraBackgroundProvider.module.css.js
   var digest5 = "d1ef5c2c49ab75edbbf52ed5ee5a4ca6d93c302dea6a84f1fc6392cc3ae9211b";
   var css5 = `div._auroraHolder_71jd0_1 {
   position: relative;
@@ -23371,7 +23371,7 @@ div._gradientWrapper_clkvl_23 {
   // docs/docs.tsx
   var import_react_github_corner = __toESM(require_GithubCorner());
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-27828-53OPvREp5hvb\react-aurora-background\docs\docs.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-37388-G2m6iDUVyPWL\react-aurora-background\docs\docs.module.css.js
   var digest6 = "7d50866150654c425ac6ccade28397168effc8a458cae068594d6a06967080f1";
   var css6 = `div._container_n623h_1 {
   display: flex;

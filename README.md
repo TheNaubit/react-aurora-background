@@ -79,6 +79,7 @@ Find me on Twitter: [@thenaubit](https://twitter.com/thenaubit)
 
 ## 💭 Changelog
 
+- **v1.0.4:** Fixed build generation - part 2 🔧
 - **v1.0.3:** Fixed build generation 🔧
 - **v1.0.2:** Fixed demo link 🔧
 - **v1.0.1:** Fixed docs 🔧
