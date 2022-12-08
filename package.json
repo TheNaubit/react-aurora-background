@@ -1,6 +1,6 @@
 {
   "name": "@nauverse/react-aurora-background",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "license": "MIT",
   "description": "🌌 React Aurora background component. Lightweight, customizable, beautiful.",
@@ -20,7 +20,6 @@
     "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:docs",
     "start": "npm run build:docs && npx http-server docs/",
     "build:docs": "npx ts-node scripts/buildDocs.ts",
-    "prepublishOnly": "npm run build",
     "publish": "npm publish --access public"
   },
   "devDependencies": {
@@ -54,7 +53,7 @@
     "aurora",
     "background"
   ],
-  "author": "Al | @naubit <al@nauverse.com> (https://nauverse.com)",
+  "author": "Al | @thenaubit <al@nauverse.com> (https://nauverse.com)",
   "homepage": "",
   "files": [
     "dist/",

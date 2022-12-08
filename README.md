@@ -73,6 +73,11 @@ You can set some props to the provider to customize the behavior:
 
 This is an Open Source package so feel free to create an Issue or a Pull Request (or even to Fork it) if you want!
 
+## 🐣 About me!
+
+Find me on Twitter: [@thenaubit](https://twitter.com/thenaubit)
+
 ## 💭 Changelog
 
+- **v1.0.1:** Fixed docs 🔧
 - **v1.0.0:** This is the first public version of the package, let's go! 🚀
