@@ -6,7 +6,7 @@ My personal, lightweight, customizable and beautiful take for the typical backgr
 
 ## 🎞️ Demo
 
-You can see it working by yourself in this little demo: []()
+You can see it working by yourself in this little demo: [https://naucode.github.io/react-aurora-background/](https://naucode.github.io/react-aurora-background/)
 
 ## ✨ Features
 
@@ -79,5 +79,6 @@ Find me on Twitter: [@thenaubit](https://twitter.com/thenaubit)
 
 ## 💭 Changelog
 
+- **v1.0.2:** Fixed demo link 🔧
 - **v1.0.1:** Fixed docs 🔧
 - **v1.0.0:** This is the first public version of the package, let's go! 🚀

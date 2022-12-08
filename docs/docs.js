@@ -23126,8 +23126,8 @@
   // src/components/AuroraBackdrop/AuroraBackdrop.tsx
   var import_react = __toESM(require_react());
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-16412-aFqzIRxbMZaw\react-aurora-background\src\components\AuroraBackdrop\AuroraBackdrop.module.css.js
-  var digest = "52d31557b932a284a507b53a916f1229d7d56b71afa7c8e3dbcea9a915127fb5";
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-35024-JvSDX3cGbLH6\react-aurora-background\src\components\AuroraBackdrop\AuroraBackdrop.module.css.js
+  var digest = "7ef04281f1055bdd135f67cafe3997dc09892431b2883ea1bf24892a6cfbcc03";
   var css = `div._auroraBackdrop_133n1_1 {
   width: 100%;
   height: 100%;
@@ -23177,8 +23177,8 @@
     return Math.random() * (max - min) + min;
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-16412-4KTuM8BR2TW8\react-aurora-background\src\components\BubbleItem\BubbleItem.module.css.js
-  var digest2 = "322ffc47fdc50d85244d6049c7ceb01f1b50f8048659a09e2850233f3b0f4d18";
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-35024-rJsOnXRxyw8n\react-aurora-background\src\components\BubbleItem\BubbleItem.module.css.js
+  var digest2 = "dffffa1446780c7089e9e209716c3f1f751bcd14ae245de8dab70f5973db1259";
   var css2 = `div._bubbleItem_5mrt3_1 {
   width: 50%;
   height: 50%;
@@ -23237,8 +23237,8 @@
     }, _randomnessStyles) });
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-16412-mtmZJnADSjvY\react-aurora-background\src\components\AuroraBackground\AuroraBackground.module.css.js
-  var digest3 = "e59aa743523f77eb416c1f4028d5d537e7b7d09f636d840338fb668e02e5eb73";
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-35024-rRzEkNbs0fyj\react-aurora-background\src\components\AuroraBackground\AuroraBackground.module.css.js
+  var digest3 = "6e3332b5a0bc20303918460622796b3127f232e5947a4afebab8e16f5e63587e";
   var css3 = `div._container_clkvl_1 {
   height: 100vh;
   width: 100vw;
@@ -23305,8 +23305,8 @@ div._gradientWrapper_clkvl_23 {
   // src/components/ChildrenContainer/ChildrenContainer.tsx
   var import_react4 = __toESM(require_react());
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-16412-x9G5Up5R36UN\react-aurora-background\src\components\ChildrenContainer\ChildrenContainer.module.css.js
-  var digest4 = "ddef279f23f6a852c1f7b265f9da1c2a70eb0674b50bc4ece125c91b6fa39eda";
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-35024-h1095gAnpbB3\react-aurora-background\src\components\ChildrenContainer\ChildrenContainer.module.css.js
+  var digest4 = "fd452dc0bd4c788f9b9e9d87406450db5ecb5c9d1666fc5cdc6bab61fa0dd411";
   var css4 = `div._childrenContainer_6g0oz_1 {
   height: 100vh;
   width: 100vw;
@@ -23336,7 +23336,7 @@ div._gradientWrapper_clkvl_23 {
     return /* @__PURE__ */ import_react4.default.createElement("div", { className: ChildrenContainer_module_css_default.childrenContainer }, children);
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-16412-5cJJzkj5MO2D\react-aurora-background\src\components\AuroraBackgroundProvider\AuroraBackgroundProvider.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-35024-NwnReGmQiemr\react-aurora-background\src\components\AuroraBackgroundProvider\AuroraBackgroundProvider.module.css.js
   var digest5 = "190ff3d59e021be21b6155d18bf663ef615cfcdc4741d04430adce4c56d181c4";
   var css5 = `div._auroraHolder_71jd0_1 {
   position: relative;
@@ -23371,7 +23371,7 @@ div._gradientWrapper_clkvl_23 {
   // docs/docs.tsx
   var import_react_github_corner = __toESM(require_GithubCorner());
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-16412-ywMyByg6KTPG\react-aurora-background\docs\docs.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-35024-t0331nxYppCY\react-aurora-background\docs\docs.module.css.js
   var digest6 = "b5070ca6259567ceb915155b524dce927601305215037dc445e704a818835925";
   var css6 = `div._container_n623h_1 {
   display: flex;

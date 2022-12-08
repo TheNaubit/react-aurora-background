@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.2
+
+Fixed demo link 🔧
+
 ## v1.0.1
 
 Fixed docs 🔧
