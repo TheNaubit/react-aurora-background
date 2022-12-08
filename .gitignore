@@ -1,0 +1,15 @@
+.DS_STORE
+node_modules
+dist
+.module-cache
+*.log*
+_nogit
+lib
+dist-docs
+.cache
+.parcel-cache
+TODO.md
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.yarn/*
