@@ -9,7 +9,7 @@ const Example = () => {
 
     return (
         <AuroraBackgroundProvider useRandomness={true} animDuration={20}>
-            <GithubCorner ariaLabel="Open React Aurora Background GitHub project" octoColor="#000" bannerColor="#fff" href="https://github.com/username/repo" />
+            <GithubCorner ariaLabel="Open React Aurora Background GitHub project" octoColor="#000" bannerColor="#fff" href="https://github.com/NauCode/react-aurora-background" />
             <div className={styles.container}>
                 <div className={styles.card}>
                     <div className={styles.cardImageContainer}>

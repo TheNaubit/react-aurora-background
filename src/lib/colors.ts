@@ -1,0 +1,13 @@
+export const COLOR_DODGER_BLUE = "#4f4fff";
+export const COLOR_ROYAL_BLUE = "#6849ee";
+export const COLOR_BLACK_PEARL = "#04102D";
+export const COLOR_PURE_WHITE = "#FFFFFF";
+export const COLOR_EAST_BAY = "#3F4C71";
+export const COLOR_BUNTING = "#15244B";
+export const COLOR_ROYAL_BLUE_2 = "#2c49f0";
+export const COLOR_DODGER_BLUE_2 = "#3f5efb";
+export const COLOR_RADICAL_RED = "#FC466B";
+export const COLOR_YELLOW = "#F8FF00";
+export const COLOR_SHAMROCK = "#3AD59F";
+export const COLOR_DOWNRIVER = "#091641";
+export const COLOR_AZURE_RADIANCE = "#157AF5";
