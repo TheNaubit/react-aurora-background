@@ -12,7 +12,7 @@ export const GRADIENT_COLORS = [
   COLOR_YELLOW,
   COLOR_SHAMROCK,
 ];
-export const BLUR_AMOUNT = '10vw';
+export const BLUR_AMOUNT = '4vw';
 
 export const DEFAULT_CONFIG: AuroraBackgroundConfig = {
   colors: [

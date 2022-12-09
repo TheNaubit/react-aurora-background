@@ -6,6 +6,7 @@ import styles from './AuroraBackdrop.module.css';
  * style set to blur the blurAmount.
  * @param  - blurAmount - The amount of blur to apply to the backdrop.
  * @returns A div with a className of auroraBackdrop and some custom style
+ * @deprecated This is deprecated and will be removed in the next version
  */
 export function AuroraBackdrop({ blurAmount }: { blurAmount: number | string }) {
 
@@ -21,6 +22,7 @@ export function AuroraBackdrop({ blurAmount }: { blurAmount: number | string }) 
             className={styles.auroraBackdrop}
             style={{
                 backdropFilter: `blur(${_blurAmount})`,
+                WebkitBackdropFilter: `blur(${_blurAmount})`
             }}
         >
         </div>

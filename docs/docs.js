@@ -1043,7 +1043,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
-          function useMemo4(create, deps) {
+          function useMemo3(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useMemo(create, deps);
           }
@@ -1812,7 +1812,7 @@
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
           exports.useLayoutEffect = useLayoutEffect;
-          exports.useMemo = useMemo4;
+          exports.useMemo = useMemo3;
           exports.useReducer = useReducer;
           exports.useRef = useRef;
           exports.useState = useState;
@@ -2311,9 +2311,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React7 = require_react();
+          var React6 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React7.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React6.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -3834,7 +3834,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React7.Children.forEach(props.children, function(child) {
+                  React6.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -10036,9 +10036,9 @@
           }
           function getSuspenseInstanceFallbackErrorDetails(instance) {
             var dataset = instance.nextSibling && instance.nextSibling.dataset;
-            var digest7, message, stack;
+            var digest6, message, stack;
             if (dataset) {
-              digest7 = dataset.dgst;
+              digest6 = dataset.dgst;
               {
                 message = dataset.msg;
                 stack = dataset.stck;
@@ -10047,7 +10047,7 @@
             {
               return {
                 message,
-                digest: digest7,
+                digest: digest6,
                 stack
               };
             }
@@ -11995,7 +11995,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React7.Component().refs;
+          var emptyRefsObject = new React6.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -15410,12 +15410,12 @@
               digest: null
             };
           }
-          function createCapturedValue(value, digest7, stack) {
+          function createCapturedValue(value, digest6, stack) {
             return {
               value,
               source: null,
               stack: stack != null ? stack : null,
-              digest: digest7 != null ? digest7 : null
+              digest: digest6 != null ? digest6 : null
             };
           }
           function showErrorDialog(boundary, errorInfo) {
@@ -16689,10 +16689,10 @@
                 );
               }
               if (isSuspenseInstanceFallback(suspenseInstance)) {
-                var digest7, message, stack;
+                var digest6, message, stack;
                 {
                   var _getSuspenseInstanceF = getSuspenseInstanceFallbackErrorDetails(suspenseInstance);
-                  digest7 = _getSuspenseInstanceF.digest;
+                  digest6 = _getSuspenseInstanceF.digest;
                   message = _getSuspenseInstanceF.message;
                   stack = _getSuspenseInstanceF.stack;
                 }
@@ -16702,7 +16702,7 @@
                 } else {
                   error2 = new Error("The server could not finish this Suspense boundary, likely due to an error during server rendering. Switched to client rendering.");
                 }
-                var capturedValue = createCapturedValue(error2, digest7, stack);
+                var capturedValue = createCapturedValue(error2, digest6, stack);
                 return retrySuspenseComponentWithoutHydrating(current2, workInProgress2, renderLanes2, capturedValue);
               }
               var hasContextChanged2 = includesSomeLane(renderLanes2, current2.childLanes);
@@ -20728,10 +20728,10 @@
               for (var i = 0; i < recoverableErrors.length; i++) {
                 var recoverableError = recoverableErrors[i];
                 var componentStack = recoverableError.stack;
-                var digest7 = recoverableError.digest;
+                var digest6 = recoverableError.digest;
                 onRecoverableError(recoverableError.value, {
                   componentStack,
-                  digest: digest7
+                  digest: digest6
                 });
               }
             }
@@ -23088,14 +23088,14 @@
   });
 
   // docs/docs.tsx
-  var import_react6 = __toESM(require_react());
+  var import_react5 = __toESM(require_react());
   var import_client = __toESM(require_client());
 
   // src/components/AuroraBackgroundProvider/AuroraBackgroundProvider.tsx
-  var import_react5 = __toESM(require_react());
+  var import_react4 = __toESM(require_react());
 
   // src/components/AuroraBackground/AuroraBackground.tsx
-  var import_react3 = __toESM(require_react());
+  var import_react2 = __toESM(require_react());
 
   // src/lib/colors.ts
   var COLOR_DODGER_BLUE_2 = "#3f5efb";
@@ -23104,7 +23104,7 @@
   var COLOR_SHAMROCK = "#3AD59F";
 
   // src/lib/constants.ts
-  var BLUR_AMOUNT = "10vw";
+  var BLUR_AMOUNT = "4vw";
   var DEFAULT_CONFIG = {
     colors: [
       COLOR_RADICAL_RED,
@@ -23123,71 +23123,17 @@
   var BUBBLE_MIN_RANDOM_HEIGHT = 48;
   var BUBBLE_MAX_RANDOM_HEIGHT = 52;
 
-  // src/components/AuroraBackdrop/AuroraBackdrop.tsx
-  var import_react = __toESM(require_react());
-
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-13892-ibbpPRSAuwTw\react-aurora-background\src\components\AuroraBackdrop\AuroraBackdrop.module.css.js
-  var digest = "ebe7c55cb4aecf8a950a0fc5936fe852497e683eec1c9a16c83b9c212e73f889";
-  var css = `div._auroraBackdrop_ndurl_1 {
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: transparent;
-  -webkit-backface-visibility: hidden;
-  -webkit-perspective: 1000;
-  -webkit-transform: translate3d(0, 0, 0);
-  -webkit-transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000;
-  transform: translateZ(0);
-  will-change: transform;
-}
-`;
-  (function() {
-    if (typeof document === "undefined") {
-      return;
-    }
-    if (!document.getElementById(digest)) {
-      var el = document.createElement("style");
-      el.id = digest;
-      el.textContent = css;
-      document.head.appendChild(el);
-    }
-  })();
-  var AuroraBackdrop_module_css_default = { "auroraBackdrop": "_auroraBackdrop_ndurl_1" };
-
-  // src/components/AuroraBackdrop/AuroraBackdrop.tsx
-  function AuroraBackdrop({ blurAmount }) {
-    const _blurAmount = (0, import_react.useMemo)(() => {
-      if (typeof blurAmount === "number")
-        return `${blurAmount}px`;
-      return blurAmount;
-    }, [blurAmount]);
-    return /* @__PURE__ */ import_react.default.createElement(
-      "div",
-      {
-        className: AuroraBackdrop_module_css_default.auroraBackdrop,
-        style: {
-          backdropFilter: `blur(${_blurAmount})`
-        }
-      }
-    );
-  }
-
   // src/components/BubbleItem/BubbleItem.tsx
-  var import_react2 = __toESM(require_react());
+  var import_react = __toESM(require_react());
 
   // src/lib/utils.ts
   function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-13892-XSCe1SM65lb8\react-aurora-background\src\components\BubbleItem\BubbleItem.module.css.js
-  var digest2 = "f7ada4b4395806faf6958accfecad7a46a5ceac49f18b56de4b1bb8df5c68d75";
-  var css2 = `div._bubbleItem_18hiq_1 {
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-30844-EH3krqFHMOII\react-aurora-background\src\components\BubbleItem\BubbleItem.module.css.js
+  var digest = "4f5e4cb1cd6b47f0264cbd0b4150f16b9787723cc25f474be4b60ecc2d42eab6";
+  var css = `div._bubbleItem_18hiq_1 {
   width: 50%;
   height: 50%;
   display: flex;
@@ -23220,19 +23166,19 @@
     if (typeof document === "undefined") {
       return;
     }
-    if (!document.getElementById(digest2)) {
+    if (!document.getElementById(digest)) {
       var el = document.createElement("style");
-      el.id = digest2;
-      el.textContent = css2;
+      el.id = digest;
+      el.textContent = css;
       document.head.appendChild(el);
     }
   })();
   var BubbleItem_module_css_default = { "bubbleItem": "_bubbleItem_18hiq_1", "bubbleMovement": "_bubbleMovement_18hiq_1" };
 
   // src/components/BubbleItem/BubbleItem.tsx
-  function BubbleItem({ index, color, animDuration, useRandomness }) {
-    const animationDirection = (0, import_react2.useMemo)(() => index % 2 === 0 ? "alternate-reverse" : "alternate", [index]);
-    const _randomnessStyles = (0, import_react2.useMemo)(() => {
+  function BubbleItem({ index, color, animDuration, useRandomness, blurAmount }) {
+    const animationDirection = (0, import_react.useMemo)(() => index % 2 === 0 ? "alternate-reverse" : "alternate", [index]);
+    const _randomnessStyles = (0, import_react.useMemo)(() => {
       if (useRandomness === false)
         return {};
       const _rndWidth = getRandomArbitrary(BUBBLE_MIN_RANDOM_WIDTH, BUBBLE_MAX_RANDOM_WIDTH);
@@ -23246,16 +23192,23 @@
         animationDelay: `${_rndDelay}s`
       };
     }, [useRandomness]);
-    return /* @__PURE__ */ import_react2.default.createElement("div", { className: BubbleItem_module_css_default.bubbleItem, style: __spreadValues({
+    const _blurAmount = (0, import_react.useMemo)(() => {
+      if (typeof blurAmount === "number")
+        return `${blurAmount}px`;
+      return blurAmount;
+    }, [blurAmount]);
+    return /* @__PURE__ */ import_react.default.createElement("div", { className: BubbleItem_module_css_default.bubbleItem, style: __spreadValues({
       animationDirection,
       backgroundColor: color,
-      animationDuration: `${animDuration}s`
+      animationDuration: `${animDuration}s`,
+      filter: `blur(${_blurAmount})`,
+      WebkitFilter: `blur(${_blurAmount})`
     }, _randomnessStyles) });
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-13892-uTKsPIFtVFAH\react-aurora-background\src\components\AuroraBackground\AuroraBackground.module.css.js
-  var digest3 = "33952344bac5eb669e280cb95ab3c00afa2a37434b47d4fb0e0e87c53775ea92";
-  var css3 = `div._container_5hsiz_1 {
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-30844-swj6pxKykdZV\react-aurora-background\src\components\AuroraBackground\AuroraBackground.module.css.js
+  var digest2 = "33952344bac5eb669e280cb95ab3c00afa2a37434b47d4fb0e0e87c53775ea92";
+  var css2 = `div._container_5hsiz_1 {
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -23295,10 +23248,10 @@ div._gradientWrapper_5hsiz_39 {
     if (typeof document === "undefined") {
       return;
     }
-    if (!document.getElementById(digest3)) {
+    if (!document.getElementById(digest2)) {
       var el = document.createElement("style");
-      el.id = digest3;
-      el.textContent = css3;
+      el.id = digest2;
+      el.textContent = css2;
       document.head.appendChild(el);
     }
   })();
@@ -23306,11 +23259,11 @@ div._gradientWrapper_5hsiz_39 {
 
   // src/components/AuroraBackground/AuroraBackground.tsx
   function AuroraBackground({ bgColor, colors, numBubbles, animDuration, blurAmount, useRandomness }) {
-    const _bgColor = (0, import_react3.useMemo)(() => bgColor != null ? bgColor : DEFAULT_CONFIG.bgColor, [bgColor]);
-    const _animDuration = (0, import_react3.useMemo)(() => animDuration != null ? animDuration : DEFAULT_CONFIG.animDuration, [animDuration]);
-    const _blurAmount = (0, import_react3.useMemo)(() => blurAmount != null ? blurAmount : DEFAULT_CONFIG.blurAmount, [blurAmount]);
-    const _useRandomness = (0, import_react3.useMemo)(() => useRandomness != null ? useRandomness : DEFAULT_CONFIG.useRandomness, [useRandomness]);
-    const _getColorByIndex = (0, import_react3.useCallback)((index) => {
+    const _bgColor = (0, import_react2.useMemo)(() => bgColor != null ? bgColor : DEFAULT_CONFIG.bgColor, [bgColor]);
+    const _animDuration = (0, import_react2.useMemo)(() => animDuration != null ? animDuration : DEFAULT_CONFIG.animDuration, [animDuration]);
+    const _blurAmount = (0, import_react2.useMemo)(() => blurAmount != null ? blurAmount : DEFAULT_CONFIG.blurAmount, [blurAmount]);
+    const _useRandomness = (0, import_react2.useMemo)(() => useRandomness != null ? useRandomness : DEFAULT_CONFIG.useRandomness, [useRandomness]);
+    const _getColorByIndex = (0, import_react2.useCallback)((index) => {
       var _a;
       const _arrColors = colors != null ? colors : DEFAULT_CONFIG.colors;
       let _fixedIndex = index;
@@ -23322,24 +23275,24 @@ div._gradientWrapper_5hsiz_39 {
         _fixedIndex = -1 * index;
       return (_a = _arrColors[_fixedIndex]) != null ? _a : COLOR_DODGER_BLUE_2;
     }, [colors]);
-    const bubbleItems = (0, import_react3.useMemo)(() => {
+    const bubbleItems = (0, import_react2.useMemo)(() => {
       const _amountBubbles = numBubbles != null ? numBubbles : DEFAULT_CONFIG.numBubbles;
       return new Array(_amountBubbles).fill(0).map((_v, index) => {
         const _bubbleColor = _getColorByIndex(index);
-        return /* @__PURE__ */ import_react3.default.createElement(BubbleItem, { key: `aurora-bubble-item-${index}`, index, color: _bubbleColor, animDuration: _animDuration, useRandomness: _useRandomness });
+        return /* @__PURE__ */ import_react2.default.createElement(BubbleItem, { blurAmount: _blurAmount, key: `aurora-bubble-item-${index}`, index, color: _bubbleColor, animDuration: _animDuration, useRandomness: _useRandomness });
       });
     }, [numBubbles]);
-    return /* @__PURE__ */ import_react3.default.createElement("div", { className: AuroraBackground_module_css_default.container }, /* @__PURE__ */ import_react3.default.createElement("div", { className: AuroraBackground_module_css_default.gradientWrapper, style: {
+    return /* @__PURE__ */ import_react2.default.createElement("div", { className: AuroraBackground_module_css_default.container }, /* @__PURE__ */ import_react2.default.createElement("div", { className: AuroraBackground_module_css_default.gradientWrapper, style: {
       background: _bgColor
-    } }, bubbleItems, /* @__PURE__ */ import_react3.default.createElement(AuroraBackdrop, { blurAmount: _blurAmount })));
+    } }, bubbleItems));
   }
 
   // src/components/ChildrenContainer/ChildrenContainer.tsx
-  var import_react4 = __toESM(require_react());
+  var import_react3 = __toESM(require_react());
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-13892-d7JCzD42H2XO\react-aurora-background\src\components\ChildrenContainer\ChildrenContainer.module.css.js
-  var digest4 = "a2896f594e31831d741a6d6ea5ab57f3f4ad06222cb29ada37df1fd574a91a0b";
-  var css4 = `div._childrenContainer_11fm1_1 {
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-30844-3cgX0zShyY3i\react-aurora-background\src\components\ChildrenContainer\ChildrenContainer.module.css.js
+  var digest3 = "a2896f594e31831d741a6d6ea5ab57f3f4ad06222cb29ada37df1fd574a91a0b";
+  var css3 = `div._childrenContainer_11fm1_1 {
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -23362,10 +23315,10 @@ div._gradientWrapper_5hsiz_39 {
     if (typeof document === "undefined") {
       return;
     }
-    if (!document.getElementById(digest4)) {
+    if (!document.getElementById(digest3)) {
       var el = document.createElement("style");
-      el.id = digest4;
-      el.textContent = css4;
+      el.id = digest3;
+      el.textContent = css3;
       document.head.appendChild(el);
     }
   })();
@@ -23373,12 +23326,12 @@ div._gradientWrapper_5hsiz_39 {
 
   // src/components/ChildrenContainer/ChildrenContainer.tsx
   function ChildrenContainer({ children }) {
-    return /* @__PURE__ */ import_react4.default.createElement("div", { className: ChildrenContainer_module_css_default.childrenContainer }, children);
+    return /* @__PURE__ */ import_react3.default.createElement("div", { className: ChildrenContainer_module_css_default.childrenContainer }, children);
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-13892-Q3O8vqMiCC24\react-aurora-background\src\components\AuroraBackgroundProvider\AuroraBackgroundProvider.module.css.js
-  var digest5 = "d1ef5c2c49ab75edbbf52ed5ee5a4ca6d93c302dea6a84f1fc6392cc3ae9211b";
-  var css5 = `div._auroraHolder_1jooh_1 {
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-30844-87Vus9SjyLQF\react-aurora-background\src\components\AuroraBackgroundProvider\AuroraBackgroundProvider.module.css.js
+  var digest4 = "d1ef5c2c49ab75edbbf52ed5ee5a4ca6d93c302dea6a84f1fc6392cc3ae9211b";
+  var css4 = `div._auroraHolder_1jooh_1 {
   position: relative;
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
@@ -23394,10 +23347,10 @@ div._gradientWrapper_5hsiz_39 {
     if (typeof document === "undefined") {
       return;
     }
-    if (!document.getElementById(digest5)) {
+    if (!document.getElementById(digest4)) {
       var el = document.createElement("style");
-      el.id = digest5;
-      el.textContent = css5;
+      el.id = digest4;
+      el.textContent = css4;
       document.head.appendChild(el);
     }
   })();
@@ -23413,15 +23366,15 @@ div._gradientWrapper_5hsiz_39 {
     bgColor,
     useRandomness
   }) {
-    return /* @__PURE__ */ import_react5.default.createElement("div", { className: AuroraBackgroundProvider_module_css_default.auroraHolder }, /* @__PURE__ */ import_react5.default.createElement(AuroraBackground, { useRandomness, colors, numBubbles, animDuration, blurAmount, bgColor }), /* @__PURE__ */ import_react5.default.createElement(ChildrenContainer, null, children));
+    return /* @__PURE__ */ import_react4.default.createElement("div", { className: AuroraBackgroundProvider_module_css_default.auroraHolder }, /* @__PURE__ */ import_react4.default.createElement(AuroraBackground, { useRandomness, colors, numBubbles, animDuration, blurAmount, bgColor }), /* @__PURE__ */ import_react4.default.createElement(ChildrenContainer, null, children));
   }
 
   // docs/docs.tsx
   var import_react_github_corner = __toESM(require_GithubCorner());
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-13892-5L3rG631LxVh\react-aurora-background\docs\docs.module.css.js
-  var digest6 = "7d50866150654c425ac6ccade28397168effc8a458cae068594d6a06967080f1";
-  var css6 = `div._container_454r9_1 {
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-30844-dvXt918pAKkL\react-aurora-background\docs\docs.module.css.js
+  var digest5 = "7d50866150654c425ac6ccade28397168effc8a458cae068594d6a06967080f1";
+  var css5 = `div._container_454r9_1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -23505,10 +23458,10 @@ div._gradientWrapper_5hsiz_39 {
     if (typeof document === "undefined") {
       return;
     }
-    if (!document.getElementById(digest6)) {
+    if (!document.getElementById(digest5)) {
       var el = document.createElement("style");
-      el.id = digest6;
-      el.textContent = css6;
+      el.id = digest5;
+      el.textContent = css5;
       document.head.appendChild(el);
     }
   })();
@@ -23516,12 +23469,12 @@ div._gradientWrapper_5hsiz_39 {
 
   // docs/docs.tsx
   var Example = () => {
-    return /* @__PURE__ */ import_react6.default.createElement(AuroraBackgroundProvider, { useRandomness: true, animDuration: 20 }, /* @__PURE__ */ import_react6.default.createElement(import_react_github_corner.default, { ariaLabel: "Open React Aurora Background GitHub project", octoColor: "#000", bannerColor: "#fff", href: "https://github.com/NauCode/react-aurora-background" }), /* @__PURE__ */ import_react6.default.createElement("div", { className: docs_module_css_default.container }, /* @__PURE__ */ import_react6.default.createElement("div", { className: docs_module_css_default.card }, /* @__PURE__ */ import_react6.default.createElement("div", { className: docs_module_css_default.cardImageContainer }, /* @__PURE__ */ import_react6.default.createElement("img", { src: "https://i.redd.it/b3esnz5ra34y.jpg", className: docs_module_css_default.cardImage })), /* @__PURE__ */ import_react6.default.createElement("div", { className: docs_module_css_default.cardTitleContainer }, /* @__PURE__ */ import_react6.default.createElement("span", { className: docs_module_css_default.cardTitleEmoji }, "\u{1F30C}"), /* @__PURE__ */ import_react6.default.createElement("span", { className: docs_module_css_default.cardTitle }, "React Aurora Background")))));
+    return /* @__PURE__ */ import_react5.default.createElement(AuroraBackgroundProvider, { useRandomness: true, animDuration: 20 }, /* @__PURE__ */ import_react5.default.createElement(import_react_github_corner.default, { ariaLabel: "Open React Aurora Background GitHub project", octoColor: "#000", bannerColor: "#fff", href: "https://github.com/NauCode/react-aurora-background" }), /* @__PURE__ */ import_react5.default.createElement("div", { className: docs_module_css_default.container }, /* @__PURE__ */ import_react5.default.createElement("div", { className: docs_module_css_default.card }, /* @__PURE__ */ import_react5.default.createElement("div", { className: docs_module_css_default.cardImageContainer }, /* @__PURE__ */ import_react5.default.createElement("img", { src: "https://i.redd.it/b3esnz5ra34y.jpg", className: docs_module_css_default.cardImage })), /* @__PURE__ */ import_react5.default.createElement("div", { className: docs_module_css_default.cardTitleContainer }, /* @__PURE__ */ import_react5.default.createElement("span", { className: docs_module_css_default.cardTitleEmoji }, "\u{1F30C}"), /* @__PURE__ */ import_react5.default.createElement("span", { className: docs_module_css_default.cardTitle }, "React Aurora Background")))));
   };
   var container = document.getElementById("root");
   var root = (0, import_client.createRoot)(container);
   root.render(
-    /* @__PURE__ */ import_react6.default.createElement(import_react6.StrictMode, null, /* @__PURE__ */ import_react6.default.createElement(Example, null))
+    /* @__PURE__ */ import_react5.default.createElement(import_react5.StrictMode, null, /* @__PURE__ */ import_react5.default.createElement(Example, null))
   );
 })();
 //# sourceMappingURL=docs.js.map

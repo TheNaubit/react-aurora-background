@@ -2,7 +2,6 @@ import React, { useCallback, useMemo } from "react"
 import { COLOR_DODGER_BLUE_2 } from "../../lib/colors"
 import { DEFAULT_CONFIG } from "../../lib/constants"
 import { AuroraBackgroundConfig } from "../../types"
-import { AuroraBackdrop } from "../AuroraBackdrop"
 import { BubbleItem } from "../BubbleItem"
 import styles from './AuroraBackground.module.css'
 
@@ -39,7 +38,7 @@ export function AuroraBackground({ bgColor, colors, numBubbles, animDuration, bl
         return new Array(_amountBubbles).fill(0).map((_v, index) => {
             const _bubbleColor = _getColorByIndex(index);
 
-            return <BubbleItem key={`aurora-bubble-item-${index}`} index={index} color={_bubbleColor} animDuration={_animDuration} useRandomness={_useRandomness} />
+            return <BubbleItem blurAmount={_blurAmount} key={`aurora-bubble-item-${index}`} index={index} color={_bubbleColor} animDuration={_animDuration} useRandomness={_useRandomness} />
         })
 
     }, [numBubbles])
@@ -51,7 +50,6 @@ export function AuroraBackground({ bgColor, colors, numBubbles, animDuration, bl
                 background: _bgColor
             }}>
                 {bubbleItems}
-                <AuroraBackdrop blurAmount={_blurAmount} />
             </div>
         </div>
     )

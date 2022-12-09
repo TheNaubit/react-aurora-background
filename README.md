@@ -14,8 +14,9 @@ You can see it working by yourself in this little demo: [https://naucode.github.
 - It has both ESM and CJS modules, as well as type definitions.
 - Minimal - Almost no dependencies!
 - Fast
-- SSR compatible!
+- SSR compatible! (and of course, it works in Next.JS 13 as a Server Component!)
 - Customizable. Change everything. Colors, speed, blur...
+- Compatible. It works in Chrome, Edge, Firefox, Webkit... desktop and mobile devices!
 
 ## 🔧 How to install?
 
@@ -79,6 +80,8 @@ Find me on Twitter: [@thenaubit](https://twitter.com/thenaubit)
 
 ## 💭 Changelog
 
+- **v1.0.8:** Fixed Firefox support 🔧
+- **v1.0.7:** Fixed iOS blur issue 🔧
 - **v1.0.6:** Added some performance improvements (now we use the GPU when possible) ✨
 - **v1.0.5:** Fixed optimization in bubble items 🔧
 - **v1.0.4:** Fixed build generation - part 2 🔧

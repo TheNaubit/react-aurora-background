@@ -8,7 +8,7 @@ import styles from './BubbleItem.module.css'
  * It's a React component that renders a div with a background color and some animation properties.
  * @param  - index - the index of the bubble item
  */
-export function BubbleItem({ index, color, animDuration, useRandomness }: { index: number, color: Color, animDuration: number, useRandomness: boolean }) {
+export function BubbleItem({ index, color, animDuration, useRandomness, blurAmount }: { blurAmount: number | string, index: number, color: Color, animDuration: number, useRandomness: boolean }) {
 
     const animationDirection = useMemo(() => index % 2 === 0 ? "alternate-reverse" : "alternate", [index])
 
@@ -30,11 +30,20 @@ export function BubbleItem({ index, color, animDuration, useRandomness }: { inde
 
     }, [useRandomness])
 
+    /* It's a hook that is used to memoize the blurAmount. */
+    const _blurAmount = useMemo(() => {
+        if (typeof blurAmount === "number") return `${blurAmount}px`
+
+        return blurAmount
+    }, [blurAmount])
+
     return (
         <div className={styles.bubbleItem} style={{
             animationDirection,
             backgroundColor: color,
             animationDuration: `${animDuration}s`,
+            filter: `blur(${_blurAmount})`,
+            WebkitFilter: `blur(${_blurAmount})`,
             ..._randomnessStyles
         }}></div>
     )
