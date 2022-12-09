@@ -23104,7 +23104,7 @@
   var COLOR_SHAMROCK = "#3AD59F";
 
   // src/lib/constants.ts
-  var BLUR_AMOUNT = "4vw";
+  var BLUR_AMOUNT = "10vw";
   var DEFAULT_CONFIG = {
     colors: [
       COLOR_RADICAL_RED,
@@ -23113,7 +23113,7 @@
       COLOR_SHAMROCK
     ],
     numBubbles: 4,
-    animDuration: 5,
+    animDuration: 20,
     blurAmount: BLUR_AMOUNT,
     bgColor: COLOR_DODGER_BLUE_2,
     useRandomness: false
@@ -23131,7 +23131,7 @@
     return Math.random() * (max - min) + min;
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-30844-EH3krqFHMOII\react-aurora-background\src\components\BubbleItem\BubbleItem.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-29704-1D8WdIFvRG5x\react-aurora-background\src\components\BubbleItem\BubbleItem.module.css.js
   var digest = "4f5e4cb1cd6b47f0264cbd0b4150f16b9787723cc25f474be4b60ecc2d42eab6";
   var css = `div._bubbleItem_18hiq_1 {
   width: 50%;
@@ -23206,7 +23206,7 @@
     }, _randomnessStyles) });
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-30844-swj6pxKykdZV\react-aurora-background\src\components\AuroraBackground\AuroraBackground.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-29704-ujb3hk4PBfIh\react-aurora-background\src\components\AuroraBackground\AuroraBackground.module.css.js
   var digest2 = "33952344bac5eb669e280cb95ab3c00afa2a37434b47d4fb0e0e87c53775ea92";
   var css2 = `div._container_5hsiz_1 {
   height: 100vh;
@@ -23290,7 +23290,7 @@ div._gradientWrapper_5hsiz_39 {
   // src/components/ChildrenContainer/ChildrenContainer.tsx
   var import_react3 = __toESM(require_react());
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-30844-3cgX0zShyY3i\react-aurora-background\src\components\ChildrenContainer\ChildrenContainer.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-29704-eFjlmp7Z00cT\react-aurora-background\src\components\ChildrenContainer\ChildrenContainer.module.css.js
   var digest3 = "a2896f594e31831d741a6d6ea5ab57f3f4ad06222cb29ada37df1fd574a91a0b";
   var css3 = `div._childrenContainer_11fm1_1 {
   height: 100vh;
@@ -23329,7 +23329,7 @@ div._gradientWrapper_5hsiz_39 {
     return /* @__PURE__ */ import_react3.default.createElement("div", { className: ChildrenContainer_module_css_default.childrenContainer }, children);
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-30844-87Vus9SjyLQF\react-aurora-background\src\components\AuroraBackgroundProvider\AuroraBackgroundProvider.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-29704-BgvZa4efe0Yy\react-aurora-background\src\components\AuroraBackgroundProvider\AuroraBackgroundProvider.module.css.js
   var digest4 = "d1ef5c2c49ab75edbbf52ed5ee5a4ca6d93c302dea6a84f1fc6392cc3ae9211b";
   var css4 = `div._auroraHolder_1jooh_1 {
   position: relative;
@@ -23372,7 +23372,7 @@ div._gradientWrapper_5hsiz_39 {
   // docs/docs.tsx
   var import_react_github_corner = __toESM(require_GithubCorner());
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-30844-dvXt918pAKkL\react-aurora-background\docs\docs.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-29704-Kxxo4REooJF2\react-aurora-background\docs\docs.module.css.js
   var digest5 = "7d50866150654c425ac6ccade28397168effc8a458cae068594d6a06967080f1";
   var css5 = `div._container_454r9_1 {
   display: flex;

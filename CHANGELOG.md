@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.9
+
+Improved default settings ✨
+
 ## v1.0.8
 
 Fixed Firefox support 🔧

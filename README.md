@@ -80,6 +80,7 @@ Find me on Twitter: [@thenaubit](https://twitter.com/thenaubit)
 
 ## 💭 Changelog
 
+- **v1.0.9:** Improved default settings ✨
 - **v1.0.8:** Fixed Firefox support 🔧
 - **v1.0.7:** Fixed iOS blur issue 🔧
 - **v1.0.6:** Added some performance improvements (now we use the GPU when possible) ✨

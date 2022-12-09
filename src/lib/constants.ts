@@ -12,7 +12,7 @@ export const GRADIENT_COLORS = [
   COLOR_YELLOW,
   COLOR_SHAMROCK,
 ];
-export const BLUR_AMOUNT = '4vw';
+export const BLUR_AMOUNT = '10vw';
 
 export const DEFAULT_CONFIG: AuroraBackgroundConfig = {
   colors: [
@@ -22,7 +22,7 @@ export const DEFAULT_CONFIG: AuroraBackgroundConfig = {
     COLOR_SHAMROCK,
   ],
   numBubbles: 4,
-  animDuration: 5,
+  animDuration: 20,
   blurAmount: BLUR_AMOUNT,
   bgColor: COLOR_DODGER_BLUE_2,
   useRandomness: false,
