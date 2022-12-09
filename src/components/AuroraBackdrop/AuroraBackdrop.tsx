@@ -22,6 +22,7 @@ export function AuroraBackdrop({ blurAmount }: { blurAmount: number | string }) 
             style={{
                 backdropFilter: `blur(${_blurAmount})`,
             }}
-        ></div>
+        >
+        </div>
     );
 }

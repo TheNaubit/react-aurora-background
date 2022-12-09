@@ -23126,9 +23126,9 @@
   // src/components/AuroraBackdrop/AuroraBackdrop.tsx
   var import_react = __toESM(require_react());
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-20388-XjrgXpeYRr1i\react-aurora-background\src\components\AuroraBackdrop\AuroraBackdrop.module.css.js
-  var digest = "3a79bba389e70b6af7bb3e8f547c7acbf1219ef1d7c7897b9169bd304ed7786a";
-  var css = `div._auroraBackdrop_133n1_1 {
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-13892-ibbpPRSAuwTw\react-aurora-background\src\components\AuroraBackdrop\AuroraBackdrop.module.css.js
+  var digest = "ebe7c55cb4aecf8a950a0fc5936fe852497e683eec1c9a16c83b9c212e73f889";
+  var css = `div._auroraBackdrop_ndurl_1 {
   width: 100%;
   height: 100%;
   display: block;
@@ -23136,6 +23136,14 @@
   left: 0;
   top: 0;
   background: transparent;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translateZ(0);
+  will-change: transform;
 }
 `;
   (function() {
@@ -23149,7 +23157,7 @@
       document.head.appendChild(el);
     }
   })();
-  var AuroraBackdrop_module_css_default = { "auroraBackdrop": "_auroraBackdrop_133n1_1" };
+  var AuroraBackdrop_module_css_default = { "auroraBackdrop": "_auroraBackdrop_ndurl_1" };
 
   // src/components/AuroraBackdrop/AuroraBackdrop.tsx
   function AuroraBackdrop({ blurAmount }) {
@@ -23177,19 +23185,27 @@
     return Math.random() * (max - min) + min;
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-20388-qlgnYYc5PcKE\react-aurora-background\src\components\BubbleItem\BubbleItem.module.css.js
-  var digest2 = "4f5e4cb1cd6b47f0264cbd0b4150f16b9787723cc25f474be4b60ecc2d42eab6";
-  var css2 = `div._bubbleItem_5mrt3_1 {
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-13892-XSCe1SM65lb8\react-aurora-background\src\components\BubbleItem\BubbleItem.module.css.js
+  var digest2 = "f7ada4b4395806faf6958accfecad7a46a5ceac49f18b56de4b1bb8df5c68d75";
+  var css2 = `div._bubbleItem_18hiq_1 {
   width: 50%;
   height: 50%;
   display: flex;
   border-radius: 30% 80% 75% 40% / 40% 40% 70% 50%;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
-  animation-name: _bubbleMovement_5mrt3_1;
+  animation-name: _bubbleMovement_18hiq_1;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
-@keyframes _bubbleMovement_5mrt3_1 {
+@keyframes _bubbleMovement_18hiq_1 {
   0% {
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 60%;
     transform: scale(2) rotate(0deg) translate(10%, 10%);
@@ -23211,7 +23227,7 @@
       document.head.appendChild(el);
     }
   })();
-  var BubbleItem_module_css_default = { "bubbleItem": "_bubbleItem_5mrt3_1", "bubbleMovement": "_bubbleMovement_5mrt3_1" };
+  var BubbleItem_module_css_default = { "bubbleItem": "_bubbleItem_18hiq_1", "bubbleMovement": "_bubbleMovement_18hiq_1" };
 
   // src/components/BubbleItem/BubbleItem.tsx
   function BubbleItem({ index, color, animDuration, useRandomness }) {
@@ -23237,9 +23253,9 @@
     }, _randomnessStyles) });
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-20388-dvQsk1JdZHRQ\react-aurora-background\src\components\AuroraBackground\AuroraBackground.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-13892-uTKsPIFtVFAH\react-aurora-background\src\components\AuroraBackground\AuroraBackground.module.css.js
   var digest3 = "33952344bac5eb669e280cb95ab3c00afa2a37434b47d4fb0e0e87c53775ea92";
-  var css3 = `div._container_clkvl_1 {
+  var css3 = `div._container_5hsiz_1 {
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -23248,15 +23264,31 @@
   right: 0;
   bottom: 0;
   z-index: 0;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
-div._gradientWrapper_clkvl_23 {
+div._gradientWrapper_5hsiz_39 {
   position: relative;
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translateZ(0);
+  will-change: transform;
 }
 `;
   (function() {
@@ -23270,7 +23302,7 @@ div._gradientWrapper_clkvl_23 {
       document.head.appendChild(el);
     }
   })();
-  var AuroraBackground_module_css_default = { "container": "_container_clkvl_1", "gradientWrapper": "_gradientWrapper_clkvl_23" };
+  var AuroraBackground_module_css_default = { "container": "_container_5hsiz_1", "gradientWrapper": "_gradientWrapper_5hsiz_39" };
 
   // src/components/AuroraBackground/AuroraBackground.tsx
   function AuroraBackground({ bgColor, colors, numBubbles, animDuration, blurAmount, useRandomness }) {
@@ -23305,9 +23337,9 @@ div._gradientWrapper_clkvl_23 {
   // src/components/ChildrenContainer/ChildrenContainer.tsx
   var import_react4 = __toESM(require_react());
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-20388-rj6IAkowFcrQ\react-aurora-background\src\components\ChildrenContainer\ChildrenContainer.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-13892-d7JCzD42H2XO\react-aurora-background\src\components\ChildrenContainer\ChildrenContainer.module.css.js
   var digest4 = "a2896f594e31831d741a6d6ea5ab57f3f4ad06222cb29ada37df1fd574a91a0b";
-  var css4 = `div._childrenContainer_6g0oz_1 {
+  var css4 = `div._childrenContainer_11fm1_1 {
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -23316,6 +23348,14 @@ div._gradientWrapper_clkvl_23 {
   right: 0;
   bottom: 0;
   z-index: 1;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translateZ(0);
+  will-change: transform;
 }
 `;
   (function() {
@@ -23329,17 +23369,25 @@ div._gradientWrapper_clkvl_23 {
       document.head.appendChild(el);
     }
   })();
-  var ChildrenContainer_module_css_default = { "childrenContainer": "_childrenContainer_6g0oz_1" };
+  var ChildrenContainer_module_css_default = { "childrenContainer": "_childrenContainer_11fm1_1" };
 
   // src/components/ChildrenContainer/ChildrenContainer.tsx
   function ChildrenContainer({ children }) {
     return /* @__PURE__ */ import_react4.default.createElement("div", { className: ChildrenContainer_module_css_default.childrenContainer }, children);
   }
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-20388-7uoPpf3jQOft\react-aurora-background\src\components\AuroraBackgroundProvider\AuroraBackgroundProvider.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-13892-Q3O8vqMiCC24\react-aurora-background\src\components\AuroraBackgroundProvider\AuroraBackgroundProvider.module.css.js
   var digest5 = "d1ef5c2c49ab75edbbf52ed5ee5a4ca6d93c302dea6a84f1fc6392cc3ae9211b";
-  var css5 = `div._auroraHolder_71jd0_1 {
+  var css5 = `div._auroraHolder_1jooh_1 {
   position: relative;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translateZ(0);
+  will-change: transform;
 }
 `;
   (function() {
@@ -23353,7 +23401,7 @@ div._gradientWrapper_clkvl_23 {
       document.head.appendChild(el);
     }
   })();
-  var AuroraBackgroundProvider_module_css_default = { "auroraHolder": "_auroraHolder_71jd0_1" };
+  var AuroraBackgroundProvider_module_css_default = { "auroraHolder": "_auroraHolder_1jooh_1" };
 
   // src/components/AuroraBackgroundProvider/AuroraBackgroundProvider.tsx
   function AuroraBackgroundProvider({
@@ -23371,9 +23419,9 @@ div._gradientWrapper_clkvl_23 {
   // docs/docs.tsx
   var import_react_github_corner = __toESM(require_GithubCorner());
 
-  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-20388-6eCtoDoXW9F5\react-aurora-background\docs\docs.module.css.js
+  // esbuild-css-modules-plugin-namespace:C:\Users\alber\AppData\Local\Temp\tmp-13892-5L3rG631LxVh\react-aurora-background\docs\docs.module.css.js
   var digest6 = "7d50866150654c425ac6ccade28397168effc8a458cae068594d6a06967080f1";
-  var css6 = `div._container_n623h_1 {
+  var css6 = `div._container_454r9_1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -23382,7 +23430,7 @@ div._gradientWrapper_clkvl_23 {
   height: 100vh;
 }
 
-._card_n623h_19 {
+._card_454r9_19 {
   width: 80%;
   max-width: 400px;
   aspect-ratio: 1 / 1;
@@ -23394,7 +23442,7 @@ div._gradientWrapper_clkvl_23 {
   position: relative;
 }
 
-._cardImageContainer_n623h_43 {
+._cardImageContainer_454r9_43 {
   width: 100%;
   height: 100%;
   border-radius: 1rem;
@@ -23406,14 +23454,14 @@ div._gradientWrapper_clkvl_23 {
   bottom: 0;
 }
 
-._cardImage_n623h_43 {
+._cardImage_454r9_43 {
   width: 100%;
   height: 100%;
   border-radius: 1rem;
   object-fit: cover;
 }
 
-._cardTitleContainer_n623h_81 {
+._cardTitleContainer_454r9_81 {
   position: absolute;
   z-index: 1;
   top: 0;
@@ -23428,7 +23476,7 @@ div._gradientWrapper_clkvl_23 {
   grid-template-rows: 1fr;
 }
 
-._cardTitleEmoji_n623h_111 {
+._cardTitleEmoji_454r9_111 {
   text-align: right;
   font-family: sans-serif;
   font-weight: bold;
@@ -23437,17 +23485,17 @@ div._gradientWrapper_clkvl_23 {
   padding-top: 140%;
 }
 
-._cardTitle_n623h_81 {
+._cardTitle_454r9_81 {
   text-align: left;
   font-family: sans-serif;
   font-weight: bold;
   font-size: 1.4rem;
   color: white;
   line-height: 1.6rem;
-  padding-top: 85%;
+  padding-top: 89%;
 }
 
-._card_n623h_19:hover {
+._card_454r9_19:hover {
   transform: scale(0.9, 0.9);
   box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
     -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
@@ -23464,7 +23512,7 @@ div._gradientWrapper_clkvl_23 {
       document.head.appendChild(el);
     }
   })();
-  var docs_module_css_default = { "container": "_container_n623h_1", "card": "_card_n623h_19", "cardImageContainer": "_cardImageContainer_n623h_43", "cardImage": "_cardImage_n623h_43", "cardTitleContainer": "_cardTitleContainer_n623h_81", "cardTitleEmoji": "_cardTitleEmoji_n623h_111", "cardTitle": "_cardTitle_n623h_81" };
+  var docs_module_css_default = { "container": "_container_454r9_1", "card": "_card_454r9_19", "cardImageContainer": "_cardImageContainer_454r9_43", "cardImage": "_cardImage_454r9_43", "cardTitleContainer": "_cardTitleContainer_454r9_81", "cardTitleEmoji": "_cardTitleEmoji_454r9_111", "cardTitle": "_cardTitle_454r9_81" };
 
   // docs/docs.tsx
   var Example = () => {

@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.6
+
+Added some performance improvements (now we use the GPU when possible) ✨
+
 ## v1.0.5
 
 Fixed optimization in bubble items 🔧
