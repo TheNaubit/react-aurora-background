@@ -18,8 +18,8 @@
     "build:esm": "tsc -p tsconfig.json && copyfiles -u 1 src/**/*.css dist/esm/ && echo { \"type\": \"module\" } > dist/esm/package.json",
     "build:cjs": "tsc -p tsconfig-cjs.json && copyfiles -u 1 src/**/*.css dist/cjs/ && echo { \"type\": \"commonjs\" } > dist/cjs/package.json",
     "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:docs",
-    "start": "npm run build:docs && npx http-server docs/",
-    "build:docs": "npx ts-node scripts/buildDocs.ts",
+    "start": "npm run build:docs && http-server docs/",
+    "build:docs": "ts-node ./scripts/buildDocs.ts",
     "publish": "npm publish --access public"
   },
   "devDependencies": {
@@ -30,11 +30,13 @@
     "css-tree": "^2.3.1",
     "esbuild": "^0.17.19",
     "esbuild-css-modules-plugin": "^2.7.1",
+    "http-server": "^14.1.1",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-github-corner": "^2.5.0",
     "rimraf": "^5.0.1",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.4",
     "typescript-plugin-css-modules": "^5.0.1"
   },
