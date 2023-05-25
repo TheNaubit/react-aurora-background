@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.10
+
+Updated dependencies and fixed broken links 🔗
+
 ## v1.0.9
 
 Improved default settings ✨
