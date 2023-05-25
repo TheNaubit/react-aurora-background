@@ -6,7 +6,7 @@ My personal, lightweight, customizable and beautiful take for the typical backgr
 
 ## 🎞️ Demo
 
-You can see it working by yourself in this little demo: [https://naucode.github.io/react-aurora-background/](https://naucode.github.io/react-aurora-background/)
+You can see it working by yourself in this little demo: [https://thenaubit.github.io/react-aurora-background/](https://thenaubit.github.io/react-aurora-background/)
 
 ## ✨ Features
 
@@ -56,7 +56,7 @@ const MyApp = () => {
 };
 ```
 
-If you want an example, you can check this [one](https://github.com/NauCode/react-aurora-background/blob/main/docs/docs.tsx).
+If you want an example, you can check this [one](https://github.com/TheNaubit/react-aurora-background/blob/main/docs/docs.tsx).
 
 ### 🛠️ Settings
 
@@ -76,10 +76,11 @@ This is an Open Source package so feel free to create an Issue or a Pull Request
 
 ## 🐣 About me!
 
-Find me on Twitter: [@thenaubit](https://twitter.com/thenaubit)
+Find me on Twitter: [@naucode](https://twitter.com/naucode)
 
 ## 💭 Changelog
 
+- **v1.0.10:** Updated dependencies and fixed broken links 🔗
 - **v1.0.9:** Improved default settings ✨
 - **v1.0.8:** Fixed Firefox support 🔧
 - **v1.0.7:** Fixed iOS blur issue 🔧
