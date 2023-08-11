@@ -16,6 +16,8 @@ export interface AuroraBackgroundConfig {
   blurAmount?: number | string;
   bgColor?: Color;
   useRandomness?: boolean;
+  style?: Object;
+  className?: string;
 }
 
 export interface IAuroraBackgroundProvider

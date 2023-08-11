@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.11
+
+Added extra props and fixed build issues 🔧
+
 ## v1.0.10
 
 Updated dependencies and fixed broken links 🔗

@@ -32,7 +32,7 @@ Or in case you are using `yarn`:
 yarn add @nauverse/react-aurora-background
 ```
 
-Also for `pnpm` (which was used for developing this component!):
+Also for `pnpm`:
 
 ```
 pnpm i @nauverse/react-aurora-background
@@ -69,6 +69,8 @@ You can set some props to the provider to customize the behavior:
 |blurAmount |It can be a number or a string. It specifies the amount of blur the aurora will have. It sets a backdropFilter CSS property so the value must be a valid CSS value. If you pass a number, it will be converted to pixels by appending a "px" string after the number. If you pass a string, it must be a valid CSS value (like "5vw", "100%"...). |"10vw" |
 |bgColor |It is the color of the background of the div containing the aurora. It is a color string (hex, rgb or rgba). |"#3f5efb" |
 |useRandomness |It is a boolean. If enabled, instead of using always the same values for width, height and animation-delay properties on each bubble item, it will add some small randomness. |false |
+|className |An optional string containing the extra class/classes to be added to the container. |<empty> |
+|style |An optional object containing styles to be added to the container. |<empty> |
 
 ## 🐛 Bugs, Issues and Contributing
 
@@ -80,6 +82,7 @@ Find me on Twitter: [@naucode](https://twitter.com/naucode)
 
 ## 💭 Changelog
 
+- **v1.0.11:** Added extra props and fixed build issues 🔧
 - **v1.0.10:** Updated dependencies and fixed broken links 🔗
 - **v1.0.9:** Improved default settings ✨
 - **v1.0.8:** Fixed Firefox support 🔧

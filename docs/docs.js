@@ -4,22 +4,8 @@
   var __defProp = Object.defineProperty;
   var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
   var __getOwnPropNames = Object.getOwnPropertyNames;
-  var __getOwnPropSymbols = Object.getOwnPropertySymbols;
   var __getProtoOf = Object.getPrototypeOf;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
-  var __propIsEnum = Object.prototype.propertyIsEnumerable;
-  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-  var __spreadValues = (a, b) => {
-    for (var prop in b ||= {})
-      if (__hasOwnProp.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    if (__getOwnPropSymbols)
-      for (var prop of __getOwnPropSymbols(b)) {
-        if (__propIsEnum.call(b, prop))
-          __defNormalProp(a, prop, b[prop]);
-      }
-    return a;
-  };
   var __commonJS = (cb, mod) => function __require() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
@@ -40,9 +26,9 @@
     mod
   ));
 
-  // .yarn/cache/react-npm-18.2.0-1eae08fee2-88e38092da.zip/node_modules/react/cjs/react.development.js
+  // node_modules/react/cjs/react.development.js
   var require_react_development = __commonJS({
-    ".yarn/cache/react-npm-18.2.0-1eae08fee2-88e38092da.zip/node_modules/react/cjs/react.development.js"(exports, module) {
+    "node_modules/react/cjs/react.development.js"(exports, module) {
       "use strict";
       if (true) {
         (function() {
@@ -1913,9 +1899,9 @@
     }
   });
 
-  // .yarn/cache/react-npm-18.2.0-1eae08fee2-88e38092da.zip/node_modules/react/index.js
+  // node_modules/react/index.js
   var require_react = __commonJS({
-    ".yarn/cache/react-npm-18.2.0-1eae08fee2-88e38092da.zip/node_modules/react/index.js"(exports, module) {
+    "node_modules/react/index.js"(exports, module) {
       "use strict";
       if (false) {
         module.exports = null;
@@ -1925,9 +1911,9 @@
     }
   });
 
-  // .yarn/cache/scheduler-npm-0.23.0-a379a6bc3b-d79192eeaa.zip/node_modules/scheduler/cjs/scheduler.development.js
+  // node_modules/scheduler/cjs/scheduler.development.js
   var require_scheduler_development = __commonJS({
-    ".yarn/cache/scheduler-npm-0.23.0-a379a6bc3b-d79192eeaa.zip/node_modules/scheduler/cjs/scheduler.development.js"(exports) {
+    "node_modules/scheduler/cjs/scheduler.development.js"(exports) {
       "use strict";
       if (true) {
         (function() {
@@ -2375,9 +2361,9 @@
     }
   });
 
-  // .yarn/cache/scheduler-npm-0.23.0-a379a6bc3b-d79192eeaa.zip/node_modules/scheduler/index.js
+  // node_modules/scheduler/index.js
   var require_scheduler = __commonJS({
-    ".yarn/cache/scheduler-npm-0.23.0-a379a6bc3b-d79192eeaa.zip/node_modules/scheduler/index.js"(exports, module) {
+    "node_modules/scheduler/index.js"(exports, module) {
       "use strict";
       if (false) {
         module.exports = null;
@@ -2387,9 +2373,9 @@
     }
   });
 
-  // .yarn/__virtual__/react-dom-virtual-5a91af93bc/0/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/cjs/react-dom.development.js
+  // node_modules/react-dom/cjs/react-dom.development.js
   var require_react_dom_development = __commonJS({
-    ".yarn/__virtual__/react-dom-virtual-5a91af93bc/0/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/cjs/react-dom.development.js"(exports) {
+    "node_modules/react-dom/cjs/react-dom.development.js"(exports) {
       "use strict";
       if (true) {
         (function() {
@@ -23478,9 +23464,9 @@
     }
   });
 
-  // .yarn/__virtual__/react-dom-virtual-5a91af93bc/0/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/index.js
+  // node_modules/react-dom/index.js
   var require_react_dom = __commonJS({
-    ".yarn/__virtual__/react-dom-virtual-5a91af93bc/0/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/index.js"(exports, module) {
+    "node_modules/react-dom/index.js"(exports, module) {
       "use strict";
       if (false) {
         checkDCE();
@@ -23491,9 +23477,9 @@
     }
   });
 
-  // .yarn/__virtual__/react-dom-virtual-5a91af93bc/0/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/client.js
+  // node_modules/react-dom/client.js
   var require_client = __commonJS({
-    ".yarn/__virtual__/react-dom-virtual-5a91af93bc/0/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/client.js"(exports) {
+    "node_modules/react-dom/client.js"(exports) {
       "use strict";
       var m = require_react_dom();
       if (false) {
@@ -23522,9 +23508,9 @@
     }
   });
 
-  // .yarn/__virtual__/react-github-corner-virtual-527ef7baad/0/cache/react-github-corner-npm-2.5.0-1b3b6908d1-cf1bb0f165.zip/node_modules/react-github-corner/lib/get-github-corner-styles.js
+  // node_modules/react-github-corner/lib/get-github-corner-styles.js
   var require_get_github_corner_styles = __commonJS({
-    ".yarn/__virtual__/react-github-corner-virtual-527ef7baad/0/cache/react-github-corner-npm-2.5.0-1b3b6908d1-cf1bb0f165.zip/node_modules/react-github-corner/lib/get-github-corner-styles.js"(exports) {
+    "node_modules/react-github-corner/lib/get-github-corner-styles.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", {
         value: true
@@ -23535,9 +23521,9 @@
     }
   });
 
-  // .yarn/__virtual__/react-github-corner-virtual-527ef7baad/0/cache/react-github-corner-npm-2.5.0-1b3b6908d1-cf1bb0f165.zip/node_modules/react-github-corner/lib/GithubCorner.js
+  // node_modules/react-github-corner/lib/GithubCorner.js
   var require_GithubCorner = __commonJS({
-    ".yarn/__virtual__/react-github-corner-virtual-527ef7baad/0/cache/react-github-corner-npm-2.5.0-1b3b6908d1-cf1bb0f165.zip/node_modules/react-github-corner/lib/GithubCorner.js"(exports) {
+    "node_modules/react-github-corner/lib/GithubCorner.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", {
         value: true
@@ -23742,8 +23728,8 @@
     return Math.random() * (max - min) + min;
   }
 
-  // esbuild-css-modules-plugin-namespace:/tmp/tmp-58945-ShEkd1j7s0SC/react-aurora-background/src/components/BubbleItem/BubbleItem.module.css.js
-  var digest = "6c114aa73f0abed410e95de7d251aee1c98e7f0a956c5a2a87bdcc8fec963439";
+  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-33628-4vlJ5fSrXfEN/react-aurora-background/src/components/BubbleItem/BubbleItem.module.css.js
+  var digest = "ce51ad9a968477efb452644155f9033d71fef42e0e758f2051702675c9ec0f3b";
   var css = `div._bubbleItem_eh6uj_1 {
   width: 50%;
   height: 50%;
@@ -23808,17 +23794,18 @@
         return `${blurAmount}px`;
       return blurAmount;
     }, [blurAmount]);
-    return /* @__PURE__ */ import_react.default.createElement("div", { className: BubbleItem_module_css_default.bubbleItem, style: __spreadValues({
+    return /* @__PURE__ */ import_react.default.createElement("div", { className: BubbleItem_module_css_default.bubbleItem, style: {
       animationDirection,
       backgroundColor: color,
       animationDuration: `${animDuration}s`,
       filter: `blur(${_blurAmount})`,
-      WebkitFilter: `blur(${_blurAmount})`
-    }, _randomnessStyles) });
+      WebkitFilter: `blur(${_blurAmount})`,
+      ..._randomnessStyles
+    } });
   }
 
-  // esbuild-css-modules-plugin-namespace:/tmp/tmp-58945-LLSbKwo4enNt/react-aurora-background/src/components/AuroraBackground/AuroraBackground.module.css.js
-  var digest2 = "859ac7e3777987f1da9747832d05a19af2647210257c5b333df9c7f1fbf9f1bd";
+  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-33628-6s9pkXydGKUS/react-aurora-background/src/components/AuroraBackground/AuroraBackground.module.css.js
+  var digest2 = "4566434f7126cf09dd70d563ceb401c4dda6ace8e7cee6374aa352c935ce08e0";
   var css2 = `div._container_turlb_1 {
   height: 100vh;
   width: 100vw;
@@ -23870,13 +23857,12 @@ div._gradientWrapper_turlb_20 {
 
   // src/components/AuroraBackground/AuroraBackground.tsx
   function AuroraBackground({ bgColor, colors, numBubbles, animDuration, blurAmount, useRandomness }) {
-    const _bgColor = (0, import_react2.useMemo)(() => bgColor != null ? bgColor : DEFAULT_CONFIG.bgColor, [bgColor]);
-    const _animDuration = (0, import_react2.useMemo)(() => animDuration != null ? animDuration : DEFAULT_CONFIG.animDuration, [animDuration]);
-    const _blurAmount = (0, import_react2.useMemo)(() => blurAmount != null ? blurAmount : DEFAULT_CONFIG.blurAmount, [blurAmount]);
-    const _useRandomness = (0, import_react2.useMemo)(() => useRandomness != null ? useRandomness : DEFAULT_CONFIG.useRandomness, [useRandomness]);
+    const _bgColor = (0, import_react2.useMemo)(() => bgColor ?? DEFAULT_CONFIG.bgColor, [bgColor]);
+    const _animDuration = (0, import_react2.useMemo)(() => animDuration ?? DEFAULT_CONFIG.animDuration, [animDuration]);
+    const _blurAmount = (0, import_react2.useMemo)(() => blurAmount ?? DEFAULT_CONFIG.blurAmount, [blurAmount]);
+    const _useRandomness = (0, import_react2.useMemo)(() => useRandomness ?? DEFAULT_CONFIG.useRandomness, [useRandomness]);
     const _getColorByIndex = (0, import_react2.useCallback)((index) => {
-      var _a;
-      const _arrColors = colors != null ? colors : DEFAULT_CONFIG.colors;
+      const _arrColors = colors ?? DEFAULT_CONFIG.colors;
       let _fixedIndex = index;
       if (index >= _arrColors.length)
         _fixedIndex = Math.floor(index % _arrColors.length);
@@ -23884,10 +23870,10 @@ div._gradientWrapper_turlb_20 {
         _fixedIndex = -1 * Math.floor(index % _arrColors.length);
       if (index <= 0 && index > -_arrColors.length)
         _fixedIndex = -1 * index;
-      return (_a = _arrColors[_fixedIndex]) != null ? _a : COLOR_DODGER_BLUE_2;
+      return _arrColors[_fixedIndex] ?? COLOR_DODGER_BLUE_2;
     }, [colors]);
     const bubbleItems = (0, import_react2.useMemo)(() => {
-      const _amountBubbles = numBubbles != null ? numBubbles : DEFAULT_CONFIG.numBubbles;
+      const _amountBubbles = numBubbles ?? DEFAULT_CONFIG.numBubbles;
       return new Array(_amountBubbles).fill(0).map((_v, index) => {
         const _bubbleColor = _getColorByIndex(index);
         return /* @__PURE__ */ import_react2.default.createElement(BubbleItem, { blurAmount: _blurAmount, key: `aurora-bubble-item-${index}`, index, color: _bubbleColor, animDuration: _animDuration, useRandomness: _useRandomness });
@@ -23901,8 +23887,8 @@ div._gradientWrapper_turlb_20 {
   // src/components/ChildrenContainer/ChildrenContainer.tsx
   var import_react3 = __toESM(require_react());
 
-  // esbuild-css-modules-plugin-namespace:/tmp/tmp-58945-HVwHb4dK52oE/react-aurora-background/src/components/ChildrenContainer/ChildrenContainer.module.css.js
-  var digest3 = "8ce73b46b15de293de22b22f65a02e24b9ec8cbf29ab81ee9fcbb8281d2825b5";
+  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-33628-Uoh6vZgw6BGs/react-aurora-background/src/components/ChildrenContainer/ChildrenContainer.module.css.js
+  var digest3 = "0cc1ee75879f2a0d01e3ab0443d99a12f0f2f9e012968988233eda4cd55c091d";
   var css3 = `div._childrenContainer_1gkes_1 {
   height: 100vh;
   width: 100vw;
@@ -23940,8 +23926,8 @@ div._gradientWrapper_turlb_20 {
     return /* @__PURE__ */ import_react3.default.createElement("div", { className: ChildrenContainer_module_css_default.childrenContainer }, children);
   }
 
-  // esbuild-css-modules-plugin-namespace:/tmp/tmp-58945-sQgL25ZeNtCi/react-aurora-background/src/components/AuroraBackgroundProvider/AuroraBackgroundProvider.module.css.js
-  var digest4 = "e9822fc2f10f2d0c3d45ff3417537976128b38510a020e1c0784026208e4ed31";
+  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-33628-PV80R8I3Yz9L/react-aurora-background/src/components/AuroraBackgroundProvider/AuroraBackgroundProvider.module.css.js
+  var digest4 = "4d3c2d791fafdf515cda56f3b2d5424fcac4ca4e83b4718b3b9e11a53bad5d0e";
   var css4 = `div._auroraHolder_1n1ja_1 {
   position: relative;
   -webkit-backface-visibility: hidden;
@@ -23975,16 +23961,18 @@ div._gradientWrapper_turlb_20 {
     animDuration,
     blurAmount,
     bgColor,
-    useRandomness
+    useRandomness,
+    style,
+    className
   }) {
-    return /* @__PURE__ */ import_react4.default.createElement("div", { className: AuroraBackgroundProvider_module_css_default.auroraHolder }, /* @__PURE__ */ import_react4.default.createElement(AuroraBackground, { useRandomness, colors, numBubbles, animDuration, blurAmount, bgColor }), /* @__PURE__ */ import_react4.default.createElement(ChildrenContainer, null, children));
+    return /* @__PURE__ */ import_react4.default.createElement("div", { className: `${AuroraBackgroundProvider_module_css_default.auroraHolder} ${className}`, style }, /* @__PURE__ */ import_react4.default.createElement(AuroraBackground, { useRandomness, colors, numBubbles, animDuration, blurAmount, bgColor }), /* @__PURE__ */ import_react4.default.createElement(ChildrenContainer, null, children));
   }
 
   // docs/docs.tsx
   var import_react_github_corner = __toESM(require_GithubCorner());
 
-  // esbuild-css-modules-plugin-namespace:/tmp/tmp-58945-eWhrDCF8XpE4/react-aurora-background/docs/docs.module.css.js
-  var digest5 = "5c606580bf3cb67af726b315eb57306d2dfd22f260d41910e258d93212555447";
+  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-33628-j05jI5SFEByN/react-aurora-background/docs/docs.module.css.js
+  var digest5 = "ade23fdf115dc171daa3697b9af3ab9f6c9c7bbe7f4f88ba29bda60abfda7c31";
   var css5 = `div._container_1grzq_1 {
   display: flex;
   flex-direction: row;
