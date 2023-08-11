@@ -82,6 +82,7 @@ Find me on Twitter: [@naucode](https://twitter.com/naucode)
 
 ## 💭 Changelog
 
+- **v1.0.12:** Improved the internal structure 🔧
 - **v1.0.11:** Added extra props and fixed build issues 🔧
 - **v1.0.10:** Updated dependencies and fixed broken links 🔗
 - **v1.0.9:** Improved default settings ✨

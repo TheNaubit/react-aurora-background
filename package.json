@@ -1,6 +1,6 @@
 {
   "name": "@nauverse/react-aurora-background",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "license": "MIT",
   "description": "🌌 React Aurora background component. Lightweight, customizable, beautiful.",
   "main": "dist/cjs/index.js",
@@ -19,7 +19,7 @@
     "build:cjs": "tsc -p tsconfig-cjs.json && copyfiles -u 1 src/**/*.css dist/cjs/ && echo '{ \"type\": \"commonjs\" }' > dist/cjs/package.json",
     "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:docs",
     "start": "npm run build:docs && http-server docs/",
-    "build:docs": "tsx ./scripts/buildDocs.ts",
+    "build:docs": "npx ts-node scripts/buildDocs.ts",
     "publish": "npm publish --access public"
   },
   "devDependencies": {
@@ -36,7 +36,7 @@
     "react-dom": "^18.2.0",
     "react-github-corner": "^2.5.0",
     "rimraf": "^5.0.1",
-    "tsx": "^3.12.7",
+    "ts-node": "^10.9.1",
     "typescript": "^5.1.6",
     "typescript-plugin-css-modules": "^5.0.1"
   },

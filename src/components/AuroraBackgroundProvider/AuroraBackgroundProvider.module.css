@@ -1,4 +1,6 @@
 div.auroraHolder {
+  width: 100%;
+  height: 100%;
   position: relative;
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;

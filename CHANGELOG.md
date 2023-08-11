@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.12
+
+Improved the internal structure 🔧
+
 ## v1.0.11
 
 Added extra props and fixed build issues 🔧

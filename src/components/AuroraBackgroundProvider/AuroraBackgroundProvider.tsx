@@ -24,7 +24,7 @@ export function AuroraBackgroundProvider({
 }: IAuroraBackgroundProvider) {
 
     return (
-        <div className={`${styles.auroraHolder} ${className}`} style={style}>
+        <div className={`${styles.auroraHolder}${className ?? ''}`} style={style}>
             <AuroraBackground useRandomness={useRandomness} colors={colors} numBubbles={numBubbles} animDuration={animDuration} blurAmount={blurAmount} bgColor={bgColor} />
             <ChildrenContainer>{children}</ChildrenContainer>
         </div>

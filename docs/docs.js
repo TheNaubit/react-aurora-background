@@ -23728,7 +23728,7 @@
     return Math.random() * (max - min) + min;
   }
 
-  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-33628-4vlJ5fSrXfEN/react-aurora-background/src/components/BubbleItem/BubbleItem.module.css.js
+  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-36661-XYYLqgGkPO0Z/react-aurora-background/src/components/BubbleItem/BubbleItem.module.css.js
   var digest = "ce51ad9a968477efb452644155f9033d71fef42e0e758f2051702675c9ec0f3b";
   var css = `div._bubbleItem_eh6uj_1 {
   width: 50%;
@@ -23804,11 +23804,11 @@
     } });
   }
 
-  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-33628-6s9pkXydGKUS/react-aurora-background/src/components/AuroraBackground/AuroraBackground.module.css.js
+  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-36661-6HMj17l0YgBO/react-aurora-background/src/components/AuroraBackground/AuroraBackground.module.css.js
   var digest2 = "4566434f7126cf09dd70d563ceb401c4dda6ace8e7cee6374aa352c935ce08e0";
-  var css2 = `div._container_turlb_1 {
-  height: 100vh;
-  width: 100vw;
+  var css2 = `div._container_1b3e3_1 {
+  height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -23825,10 +23825,10 @@
   will-change: transform;
 }
 
-div._gradientWrapper_turlb_20 {
+div._gradientWrapper_1b3e3_20 {
   position: relative;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
@@ -23853,7 +23853,7 @@ div._gradientWrapper_turlb_20 {
       document.head.appendChild(el);
     }
   })();
-  var AuroraBackground_module_css_default = { "container": "_container_turlb_1", "gradientWrapper": "_gradientWrapper_turlb_20" };
+  var AuroraBackground_module_css_default = { "container": "_container_1b3e3_1", "gradientWrapper": "_gradientWrapper_1b3e3_20" };
 
   // src/components/AuroraBackground/AuroraBackground.tsx
   function AuroraBackground({ bgColor, colors, numBubbles, animDuration, blurAmount, useRandomness }) {
@@ -23887,16 +23887,12 @@ div._gradientWrapper_turlb_20 {
   // src/components/ChildrenContainer/ChildrenContainer.tsx
   var import_react3 = __toESM(require_react());
 
-  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-33628-Uoh6vZgw6BGs/react-aurora-background/src/components/ChildrenContainer/ChildrenContainer.module.css.js
+  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-36661-GFf0P4PW64mp/react-aurora-background/src/components/ChildrenContainer/ChildrenContainer.module.css.js
   var digest3 = "0cc1ee75879f2a0d01e3ab0443d99a12f0f2f9e012968988233eda4cd55c091d";
-  var css3 = `div._childrenContainer_1gkes_1 {
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  var css3 = `div._childrenContainer_mp12l_1 {
+  height: 100%;
+  width: 100%;
+  position: relative;
   z-index: 1;
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
@@ -23919,16 +23915,18 @@ div._gradientWrapper_turlb_20 {
       document.head.appendChild(el);
     }
   })();
-  var ChildrenContainer_module_css_default = { "childrenContainer": "_childrenContainer_1gkes_1" };
+  var ChildrenContainer_module_css_default = { "childrenContainer": "_childrenContainer_mp12l_1" };
 
   // src/components/ChildrenContainer/ChildrenContainer.tsx
   function ChildrenContainer({ children }) {
     return /* @__PURE__ */ import_react3.default.createElement("div", { className: ChildrenContainer_module_css_default.childrenContainer }, children);
   }
 
-  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-33628-PV80R8I3Yz9L/react-aurora-background/src/components/AuroraBackgroundProvider/AuroraBackgroundProvider.module.css.js
+  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-36661-hZyFbrYg4QmJ/react-aurora-background/src/components/AuroraBackgroundProvider/AuroraBackgroundProvider.module.css.js
   var digest4 = "4d3c2d791fafdf515cda56f3b2d5424fcac4ca4e83b4718b3b9e11a53bad5d0e";
-  var css4 = `div._auroraHolder_1n1ja_1 {
+  var css4 = `div._auroraHolder_1x1qn_1 {
+  width: 100%;
+  height: 100%;
   position: relative;
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
@@ -23951,7 +23949,7 @@ div._gradientWrapper_turlb_20 {
       document.head.appendChild(el);
     }
   })();
-  var AuroraBackgroundProvider_module_css_default = { "auroraHolder": "_auroraHolder_1n1ja_1" };
+  var AuroraBackgroundProvider_module_css_default = { "auroraHolder": "_auroraHolder_1x1qn_1" };
 
   // src/components/AuroraBackgroundProvider/AuroraBackgroundProvider.tsx
   function AuroraBackgroundProvider({
@@ -23965,94 +23963,94 @@ div._gradientWrapper_turlb_20 {
     style,
     className
   }) {
-    return /* @__PURE__ */ import_react4.default.createElement("div", { className: `${AuroraBackgroundProvider_module_css_default.auroraHolder} ${className}`, style }, /* @__PURE__ */ import_react4.default.createElement(AuroraBackground, { useRandomness, colors, numBubbles, animDuration, blurAmount, bgColor }), /* @__PURE__ */ import_react4.default.createElement(ChildrenContainer, null, children));
+    return /* @__PURE__ */ import_react4.default.createElement("div", { className: `${AuroraBackgroundProvider_module_css_default.auroraHolder}${className ?? ""}`, style }, /* @__PURE__ */ import_react4.default.createElement(AuroraBackground, { useRandomness, colors, numBubbles, animDuration, blurAmount, bgColor }), /* @__PURE__ */ import_react4.default.createElement(ChildrenContainer, null, children));
   }
 
   // docs/docs.tsx
   var import_react_github_corner = __toESM(require_GithubCorner());
 
-  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-33628-j05jI5SFEByN/react-aurora-background/docs/docs.module.css.js
+  // esbuild-css-modules-plugin-namespace:/var/folders/91/1gh6705n3sldlswdpy2vqbcw0000gn/T/tmp-36661-BfsSrsztw705/react-aurora-background/docs/docs.module.css.js
   var digest5 = "ade23fdf115dc171daa3697b9af3ab9f6c9c7bbe7f4f88ba29bda60abfda7c31";
-  var css5 = `div._container_1grzq_1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
+  var css5 = `div._container_npr0d_1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
 }
 
-._card_1grzq_10 {
-  width: 80%;
-  max-width: 400px;
-  aspect-ratio: 1 / 1;
-  border-radius: 1rem;
-  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
-    -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
-  cursor: pointer;
-  transition: 0.4s;
-  position: relative;
+._card_npr0d_10 {
+    width: 80%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
+        -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+    transition: 0.4s;
+    position: relative;
 }
 
-._cardImageContainer_1grzq_22 {
-  width: 100%;
-  height: 100%;
-  border-radius: 1rem;
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+._cardImageContainer_npr0d_22 {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
-._cardImage_1grzq_22 {
-  width: 100%;
-  height: 100%;
-  border-radius: 1rem;
-  object-fit: cover;
+._cardImage_npr0d_22 {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
 }
 
-._cardTitleContainer_1grzq_41 {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  grid-template-columns: 38% 62%;
-  grid-template-rows: 1fr;
+._cardTitleContainer_npr0d_41 {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    grid-template-columns: 38% 62%;
+    grid-template-rows: 1fr;
+    column-gap: 10px;
 }
 
-._cardTitleEmoji_1grzq_56 {
-  text-align: right;
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 3rem;
-  color: white;
-  padding-top: 140%;
+._cardTitleEmoji_npr0d_57 {
+    text-align: right;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+    color: white;
+    padding-top: 140%;
 }
 
-._cardTitle_1grzq_41 {
-  text-align: left;
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 1.4rem;
-  color: white;
-  line-height: 1.6rem;
-  padding-top: 89%;
+._cardTitle_npr0d_41 {
+    text-align: left;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: white;
+    line-height: 1.6rem;
+    padding-top: 87%;
 }
 
-._card_1grzq_10:hover {
-  transform: scale(0.9, 0.9);
-  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
-    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
-}
-`;
+._card_npr0d_10:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+        -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+}`;
   (function() {
     if (typeof document === "undefined") {
       return;
@@ -24064,7 +24062,7 @@ div._gradientWrapper_turlb_20 {
       document.head.appendChild(el);
     }
   })();
-  var docs_module_css_default = { "container": "_container_1grzq_1", "card": "_card_1grzq_10", "cardImageContainer": "_cardImageContainer_1grzq_22", "cardImage": "_cardImage_1grzq_22", "cardTitleContainer": "_cardTitleContainer_1grzq_41", "cardTitleEmoji": "_cardTitleEmoji_1grzq_56", "cardTitle": "_cardTitle_1grzq_41" };
+  var docs_module_css_default = { "container": "_container_npr0d_1", "card": "_card_npr0d_10", "cardImageContainer": "_cardImageContainer_npr0d_22", "cardImage": "_cardImage_npr0d_22", "cardTitleContainer": "_cardTitleContainer_npr0d_41", "cardTitleEmoji": "_cardTitleEmoji_npr0d_57", "cardTitle": "_cardTitle_npr0d_41" };
 
   // docs/docs.tsx
   var Example = () => {

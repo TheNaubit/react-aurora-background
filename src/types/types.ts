@@ -1,3 +1,5 @@
+import { CSSProperties } from "react";
+
 type RGB = `rgb(${number}, ${number}, ${number})`;
 type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
 type HEX = `#${string}`;
@@ -16,7 +18,7 @@ export interface AuroraBackgroundConfig {
   blurAmount?: number | string;
   bgColor?: Color;
   useRandomness?: boolean;
-  style?: Object;
+  style?: CSSProperties;
   className?: string;
 }
 

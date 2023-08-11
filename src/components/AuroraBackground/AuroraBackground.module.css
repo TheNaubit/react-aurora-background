@@ -1,6 +1,6 @@
 div.container {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -19,8 +19,8 @@ div.container {
 
 div.gradientWrapper {
   position: relative;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
