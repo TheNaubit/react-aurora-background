@@ -34,15 +34,16 @@ src/
   core/shaders.ts           the GLSL ES 1.00 shaders (WebGL 1 and 2)
   core/renderer.ts          WebGL setup and drawing
   core/loop.ts              frame loop capped at `fps`, time only advances while running
-  core/aurora.ts            wires everything: resize, visibility, off-screen, reduced motion, context loss
-  core/fallback.ts          the still CSS gradient version (server rendering and no WebGL)
+  core/aurora.ts            wires everything: the canvas, resize, visibility, off-screen, reduced motion, context loss (and a new canvas when a context is never restored)
+  core/dom.ts               the canvas element and media query helpers (with the Safari 13 addListener fallback)
+  core/fallback.ts          the still CSS gradient version (server rendering and no WebGL); colors written as-is must pass isSafeColorSyntax
   test/fakes.ts             fake WebGL context, observers, matchMedia for the tests
 demo/                       the demo site (Vite)
 ```
 
 ## Hard rules
 
-1. **Performance first.** The canvas is rendered at most `MAX_RENDER_SIZE` (256) pixels on its longest side and scaled by the browser. Never animate with CSS filters, box shadows or layout properties. Nothing may run while the aurora is paused, off-screen or in a hidden page.
+1. **Performance first.** The canvas is rendered at most `MAX_RENDER_SIZE` (256) pixels on its longest side and scaled by the browser. Never animate with CSS filters, box shadows or layout properties. Nothing may run while the aurora is paused, off-screen or in a hidden page, except a once-per-second check of colors that depend on the page (var(), currentColor, light-dark(), only when the aurora is still and uses them).
 2. **Always a fallback.** The server markup is the still CSS aurora (`fallbackBackground`), and it stays visible when WebGL is missing or the context is lost. The canvas fades in only when WebGL works.
 3. **No hydration mismatch.** Rendering must be deterministic: randomness (the `useRandomness` seed) is only created in effects, never during render.
 4. **Browser compatibility.** Shaders stay GLSL ES 1.00 so WebGL 1 works. No CSS modules or CSS files: styles are inline, so the package works with any bundler and in server components' client boundaries.
