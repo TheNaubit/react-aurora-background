@@ -8,7 +8,7 @@ dist-docs
 .cache
 .parcel-cache
 TODO.md
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-.yarn/*
+# Build output
+dist
+dist-demo
+coverage
