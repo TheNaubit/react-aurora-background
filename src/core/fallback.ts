@@ -44,13 +44,16 @@ const COLOR_KEYWORDS = new Set([
 ]);
 
 const ALLOWED_CHARACTERS_REGEX = /^[a-z0-9#%.,+\-/\s()]+$/i;
-const FUNCTION_NAME_REGEX = /([a-z-]+)\s*\(/gi;
+const FUNCTION_NAME_REGEX = /([a-z-]+)\(/gi;
+// Real colors are short: the limit also keeps the checks fast with huge inputs
+const MAX_COLOR_LENGTH = 200;
 
 /**
  * Whether a string the parser does not know is a single CSS color that is safe to write in a style: only color functions and keywords, balanced parentheses, and no comma outside of them (which would add gradient layers or stops).
  */
 export function isSafeColorSyntax(value: string): boolean {
 	const color = value.trim();
+	if (color.length > MAX_COLOR_LENGTH) return false;
 	if (!ALLOWED_CHARACTERS_REGEX.test(color)) return false;
 	if (!color.includes("(")) return COLOR_KEYWORDS.has(color.toLowerCase());
 
@@ -91,12 +94,13 @@ function cssColor(parsed: RGBA, source: string): string | null {
 
 export interface IFallbackStyle {
 	backgroundColor: string;
-	backgroundImage: string;
+	// One gradient per bubble, each drawn by its own element: an invalid color only hides its own bubble
+	layers: Array<string>;
 }
 
 /**
  * A still aurora made of CSS gradients, matching the first WebGL frame: it is rendered on the server (no flash before the shader starts) and it is the fallback when WebGL is not available.
- * Invalid colors are skipped, and the background color has its own property, so one wrong value never hides the rest.
+ * Invalid colors are skipped, and every bubble and the background color are separate, so one wrong value never hides the rest.
  */
 export function fallbackStyle(config: IResolvedConfig): IFallbackStyle {
 	const positions = blobPositionsAt(
@@ -104,7 +108,7 @@ export function fallbackStyle(config: IResolvedConfig): IFallbackStyle {
 		0,
 		config.animDuration,
 	);
-	const gradients = config.colors.flatMap((parsed, index) => {
+	const layers = config.colors.flatMap((parsed, index) => {
 		const color = cssColor(parsed, config.colorSources[index] ?? "");
 		if (color === null) return [];
 		const x = ((positions[index * 3] as number) * 100).toFixed(1);
@@ -117,7 +121,6 @@ export function fallbackStyle(config: IResolvedConfig): IFallbackStyle {
 	return {
 		backgroundColor:
 			cssColor(config.bgColor, config.bgColorSource) ?? "transparent",
-		// The last bubble is drawn on top (the first CSS gradient is the top layer)
-		backgroundImage: gradients.reverse().join(", "),
+		layers,
 	};
 }

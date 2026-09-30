@@ -62,6 +62,8 @@ export function rasterizeColor(computed: string): RGBA | null {
 
 export interface IColorResolver {
 	(color: string): RGBA;
+	/** Removes the probes of the colors that are not in the list anymore. */
+	retain(colors: ReadonlyArray<string>): void;
 	dispose(): void;
 }
 
@@ -78,14 +80,19 @@ export function createColorResolver(
 ): IColorResolver {
 	const probes = new Map<string, HTMLElement>();
 	const cache = new Map<string, { computed: string; color: RGBA }>();
+	const invalid = new Set<string>();
 
 	const probeOf = (color: string): HTMLElement | null => {
 		const existing = probes.get(color);
 		if (existing) return existing;
+		if (invalid.has(color)) return null;
 		const probe = document.createElement("span");
 		// background-color is not inherited: an undefined variable gives transparent, like in CSS
 		probe.style.backgroundColor = color;
-		if (probe.style.backgroundColor === "") return null;
+		if (probe.style.backgroundColor === "") {
+			invalid.add(color);
+			return null;
+		}
 		probe.style.display = "none";
 		element.append(probe);
 		probes.set(color, probe);
@@ -104,10 +111,24 @@ export function createColorResolver(
 	};
 
 	return Object.assign(resolve, {
+		retain(colors: ReadonlyArray<string>) {
+			const used = new Set(colors);
+			for (const [color, probe] of probes) {
+				if (!used.has(color)) {
+					probe.remove();
+					probes.delete(color);
+					cache.delete(color);
+				}
+			}
+			for (const color of invalid) {
+				if (!used.has(color)) invalid.delete(color);
+			}
+		},
 		dispose() {
 			for (const probe of probes.values()) probe.remove();
 			probes.clear();
 			cache.clear();
+			invalid.clear();
 		},
 	});
 }

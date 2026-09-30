@@ -18,6 +18,11 @@ const LAYER_STYLE: CSSProperties = {
 	pointerEvents: "none",
 };
 
+const FALLBACK_LAYER_STYLE: CSSProperties = {
+	position: "absolute",
+	inset: 0,
+};
+
 /**
  * The aurora layer: it fills its closest positioned parent (position: relative, absolute or fixed).
  * Use AuroraBackgroundProvider to wrap content with an aurora behind it.
@@ -109,9 +114,18 @@ export function AuroraBackground({
 			className={className}
 			style={{
 				...LAYER_STYLE,
-				...(showFallback ? fallback : {}),
+				...(showFallback ? { backgroundColor: fallback.backgroundColor } : {}),
 				...style,
 			}}
-		/>
+		>
+			{showFallback &&
+				fallback.layers.map((backgroundImage, index) => (
+					<div
+						// biome-ignore lint/suspicious/noArrayIndexKey: the layers are only replaced, never reordered
+						key={index}
+						style={{ ...FALLBACK_LAYER_STYLE, backgroundImage }}
+					/>
+				))}
+		</div>
 	);
 }

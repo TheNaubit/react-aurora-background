@@ -82,22 +82,25 @@ describe("fallback", () => {
 		act(() => root.render(<AuroraBackground bgColor="transparent" />));
 		act(() => observers.resize(800, 600));
 		const layer = container.firstElementChild as HTMLElement;
-		expect(layer.style.backgroundImage).toContain("radial-gradient");
+		const fallbackLayer = () =>
+			layer.querySelector("div") as HTMLElement | null;
+		expect(fallbackLayer()?.style.backgroundImage).toContain("radial-gradient");
 
 		act(() => {
 			vi.advanceTimersByTime(1000);
 		});
-		expect(layer.style.backgroundImage).toBe("");
+		expect(fallbackLayer()).toBeNull();
 
 		const canvas = container.querySelector("canvas") as HTMLCanvasElement;
 		act(() => {
 			canvas.dispatchEvent(new Event("webglcontextlost", { cancelable: true }));
 		});
-		expect(layer.style.backgroundImage).toContain("radial-gradient");
+		expect(fallbackLayer()?.style.backgroundImage).toContain("radial-gradient");
 	});
 
 	it("places the bubbles where the first WebGL frame draws them", () => {
-		const { backgroundImage } = fallbackStyle(resolveConfig({ numBubbles: 2 }));
+		const { layers } = fallbackStyle(resolveConfig({ numBubbles: 2 }));
+		const backgroundImage = layers.join(", ");
 		// The first bubble orbits around (25%, 50%): at t=0 it is at phase 0, 18% to the right
 		expect(backgroundImage).toContain("at 43.0% 50.0%");
 	});
@@ -130,7 +133,8 @@ describe("colors the parser does not know", () => {
 			}),
 			{
 				onReadyChange: () => {},
-				createResolver: () => Object.assign(resolve, { dispose: vi.fn() }),
+				createResolver: () =>
+					Object.assign(resolve, { dispose: vi.fn(), retain: vi.fn() }),
 			},
 		);
 		observers.resize(800, 600);

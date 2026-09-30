@@ -140,8 +140,10 @@ describe("fallbackStyle", () => {
 			),
 		).toEqual({
 			backgroundColor: "rgba(0, 0, 255, 1)",
-			backgroundImage:
-				"radial-gradient(circle at 75.0% 68.0%, rgba(0, 255, 0, 1) 0%, transparent 70%), radial-gradient(circle at 43.0% 50.0%, rgba(255, 0, 0, 1) 0%, transparent 70%)",
+			layers: [
+				"radial-gradient(circle at 43.0% 50.0%, rgba(255, 0, 0, 1) 0%, transparent 70%)",
+				"radial-gradient(circle at 75.0% 68.0%, rgba(0, 255, 0, 1) 0%, transparent 70%)",
+			],
 		});
 	});
 });

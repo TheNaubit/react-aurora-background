@@ -127,7 +127,7 @@ Measured on the same full-screen page (Chromium, Apple M5, 10 seconds, CPU time 
 
 ## Browser support
 
-The aurora uses WebGL 2, or WebGL 1 on older browsers, and was tested in Chromium, Firefox and WebKit (Safari), on desktop and phone screens. Without WebGL (or when a mobile browser drops the WebGL context in the background) the still CSS version stays visible, and the animation comes back when the context is restored.
+The aurora uses WebGL 2, or WebGL 1 on older browsers, and was tested in Chromium, Firefox and WebKit (Safari), on desktop and phone screens. Without WebGL (or when a mobile browser drops the WebGL context in the background) the still CSS version stays visible, and the animation comes back when the browser restores the context, or with a new canvas when it does not. Browsers keep about 16 WebGL contexts per page: with more auroras on screen at once, the extra ones show the still CSS version.
 
 ## Upgrading from 1.x
 

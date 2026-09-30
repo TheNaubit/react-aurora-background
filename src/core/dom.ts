@@ -7,6 +7,11 @@ export function createCanvas(): HTMLCanvasElement {
 	canvas.setAttribute("aria-hidden", "true");
 	Object.assign(canvas.style, {
 		display: "block",
+		// Above the fallback layers
+		position: "absolute",
+		top: "0",
+		left: "0",
+		zIndex: "1",
 		width: "100%",
 		height: "100%",
 		opacity: "0",

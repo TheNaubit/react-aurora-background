@@ -24,6 +24,13 @@ const STILL_COLOR_CHECK_MS = 1000;
 // A lost context that the browser does not restore within this time gets a new canvas (WebKit evicts idle contexts and never restores them)
 const RESTORE_TIMEOUT_MS = 1000;
 const MAX_NEW_CANVASES = 3;
+// The budget of new canvases comes back once a context has worked for this long
+const BUDGET_RESET_MS = 30_000;
+// Browsers keep about 16 WebGL contexts: with this many live auroras a new canvas would only evict another one
+const MAX_LIVE_CONTEXTS = 12;
+
+// The WebGL contexts of all the auroras of the page
+let liveContexts = 0;
 
 export interface IAurora {
 	update(config: IResolvedConfig): void;
@@ -66,6 +73,7 @@ export function createAurora(
 	let size = { width: 0, height: 0 };
 	let restoreTimeout: ReturnType<typeof setTimeout> | null = null;
 	let colorCheckInterval: ReturnType<typeof setInterval> | null = null;
+	let budgetResetTimeout: ReturnType<typeof setTimeout> | null = null;
 	let drawnColors = "";
 	let newCanvases = 0;
 	const motionQuery = reducedMotionQuery();
@@ -181,11 +189,29 @@ export function createAurora(
 		onReadyChange(ready);
 	};
 
+	const clearBudgetReset = () => {
+		if (budgetResetTimeout !== null) clearTimeout(budgetResetTimeout);
+		budgetResetTimeout = null;
+	};
+
+	// Forgets the renderer (it is lost or destroyed)
+	const dropRenderer = () => {
+		if (renderer) liveContexts -= 1;
+		renderer = null;
+	};
+
 	const start = () => {
 		renderer = createRenderer(canvas);
 		if (!renderer) {
 			setReady(false);
 			return;
+		}
+		liveContexts += 1;
+		if (newCanvases > 0) {
+			clearBudgetReset();
+			budgetResetTimeout = setTimeout(() => {
+				newCanvases = 0;
+			}, BUDGET_RESET_MS);
 		}
 		updatePaths();
 		if (size.width > 0) resize(size.width, size.height);
@@ -249,10 +275,11 @@ export function createAurora(
 		event.preventDefault();
 		loop.stop();
 		stopColorCheck();
-		renderer = null;
+		clearBudgetReset();
+		dropRenderer();
 		setReady(false);
 		clearRestoreTimeout();
-		if (newCanvases < MAX_NEW_CANVASES) {
+		if (newCanvases < MAX_NEW_CANVASES && liveContexts < MAX_LIVE_CONTEXTS) {
 			restoreTimeout = setTimeout(replaceCanvas, RESTORE_TIMEOUT_MS);
 		}
 	}
@@ -269,6 +296,7 @@ export function createAurora(
 	return {
 		update(nextConfig) {
 			config = nextConfig;
+			resolveColor.retain([config.bgColorSource, ...config.colorSources]);
 			updatePaths();
 			refresh();
 		},
@@ -281,9 +309,10 @@ export function createAurora(
 			resizeObserver?.disconnect();
 			intersectionObserver?.disconnect();
 			stopColorCheck();
+			clearBudgetReset();
 			resolveColor.dispose();
 			renderer?.destroy();
-			renderer = null;
+			dropRenderer();
 			canvas.remove();
 		},
 	};

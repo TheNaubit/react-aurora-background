@@ -68,7 +68,7 @@ describe("browser colors", () => {
 		let brand: readonly [number, number, number, number] = [1, 0, 0, 1];
 		const resolve = Object.assign(
 			vi.fn(() => brand),
-			{ dispose: vi.fn() },
+			{ dispose: vi.fn(), retain: vi.fn() },
 		);
 		const requestFrame = vi.fn(() => 1);
 		vi.stubGlobal("requestAnimationFrame", requestFrame);
@@ -152,8 +152,8 @@ describe("fallback style", () => {
 		const style = fallbackStyle(
 			resolveConfig({ colors: ["red", "nope"], numBubbles: 2 }),
 		);
-		expect(style.backgroundImage).toContain("rgba(255, 0, 0, 1)");
-		expect(style.backgroundImage).not.toContain("nope");
+		expect(style.layers.join(", ")).toContain("rgba(255, 0, 0, 1)");
+		expect(style.layers.join(", ")).not.toContain("nope");
 		expect(style.backgroundColor).toBe("rgba(63, 94, 251, 1)");
 	});
 
@@ -168,8 +168,8 @@ describe("fallback style", () => {
 				numBubbles: 2,
 			}),
 		);
-		expect(style.backgroundImage).not.toContain("url(");
-		expect(style.backgroundImage).toContain("oklch(70% 0.2 30)");
+		expect(style.layers.join(", ")).not.toContain("url(");
+		expect(style.layers.join(", ")).toContain("oklch(70% 0.2 30)");
 		expect(style.backgroundColor).toBe("transparent");
 	});
 
@@ -181,8 +181,8 @@ describe("fallback style", () => {
 				numBubbles: 2,
 			}),
 		);
-		expect(style.backgroundImage).toContain("var(--brand)");
-		expect(style.backgroundImage).toContain(
+		expect(style.layers.join(", ")).toContain("var(--brand)");
+		expect(style.layers.join(", ")).toContain(
 			"color-mix(in oklab, red 50%, blue)",
 		);
 		expect(style.backgroundColor).toBe("hsl(var(--hue) 50% 50%)");
