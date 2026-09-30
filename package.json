@@ -1,6 +1,6 @@
 {
   "name": "@nauverse/react-aurora-background",
-  "version": "1.0.12",
+  "version": "2.0.0",
   "description": "A lightweight, GPU-friendly aurora background for React: one tiny WebGL shader, rendered at low resolution, paused when off-screen, with a CSS fallback.",
   "author": "Al | @naucode <al@nauverse.com> (https://nauverse.com)",
   "license": "MIT",
