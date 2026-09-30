@@ -86,6 +86,7 @@ const styles = {
 	},
 } satisfies Record<string, CSSProperties>;
 
+// A row of the controls: the label is visible text, and each control has its own aria-label
 function Row({
 	label,
 	value,
@@ -96,11 +97,11 @@ function Row({
 	children: ReactNode;
 }) {
 	return (
-		<label style={styles.row}>
-			<span>{label}</span>
+		<div style={styles.row}>
+			<span aria-hidden="true">{label}</span>
 			{children}
 			<span style={styles.value}>{value}</span>
-		</label>
+		</div>
 	);
 }
 
@@ -164,6 +165,7 @@ export function Demo() {
 					<Row label="Bubbles" value={String(numBubbles)}>
 						<input
 							type="range"
+							aria-label="Bubbles"
 							min={2}
 							max={9}
 							value={numBubbles}
@@ -175,6 +177,7 @@ export function Demo() {
 					<Row label="Cycle duration" value={`${animDuration}s`}>
 						<input
 							type="range"
+							aria-label="Cycle duration in seconds"
 							min={2}
 							max={60}
 							value={animDuration}
@@ -184,6 +187,7 @@ export function Demo() {
 					<Row label="Blur" value={`${blur}vw`}>
 						<input
 							type="range"
+							aria-label="Blur in vw"
 							min={0}
 							max={30}
 							value={blur}
@@ -193,6 +197,7 @@ export function Demo() {
 					<Row label="Frame rate" value={`${fps}`}>
 						<input
 							type="range"
+							aria-label="Frame rate"
 							min={1}
 							max={60}
 							value={fps}
@@ -202,6 +207,7 @@ export function Demo() {
 					<Row label="Randomness">
 						<input
 							type="checkbox"
+							aria-label="Randomness"
 							checked={useRandomness}
 							onChange={(event) => setUseRandomness(event.target.checked)}
 						/>
@@ -209,6 +215,7 @@ export function Demo() {
 					<Row label="Paused">
 						<input
 							type="checkbox"
+							aria-label="Paused"
 							checked={paused}
 							onChange={(event) => setPaused(event.target.checked)}
 						/>

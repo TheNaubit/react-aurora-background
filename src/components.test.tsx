@@ -145,7 +145,10 @@ describe("AuroraBackgroundProvider", () => {
 		expect(wrapper.style.position).toBe("relative");
 		expect(container.querySelector("p")?.textContent).toBe("Content");
 		expect(
-			(container.querySelector("p")?.parentElement as HTMLElement).style.zIndex,
+			(
+				(container.querySelector("p") as HTMLElement)
+					.parentElement as HTMLElement
+			).style.zIndex,
 		).toBe("1");
 	});
 });

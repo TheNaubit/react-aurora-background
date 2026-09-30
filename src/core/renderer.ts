@@ -102,6 +102,7 @@ export function createRenderer(canvas: HTMLCanvasElement): IRenderer | null {
 	const position = gl.getAttribLocation(program, "aPosition");
 	gl.enableVertexAttribArray(position);
 	gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+	// biome-ignore lint/correctness/useHookAtTopLevel: WebGL's useProgram is not a React hook
 	gl.useProgram(program);
 
 	const location = (name: string) => gl.getUniformLocation(program, name);

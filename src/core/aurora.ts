@@ -127,8 +127,7 @@ export function createAurora(
 		[config.bgColorSource, ...config.colorSources].some((source, index) => {
 			const parsed = index === 0 ? config.bgColor : config.colors[index - 1];
 			return (
-				parsed !== undefined &&
-				parsed.every((channel) => channel === 0) &&
+				parsed?.every((channel) => channel === 0) === true &&
 				source.trim().toLowerCase() !== "transparent"
 			);
 		});
