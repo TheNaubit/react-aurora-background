@@ -19,6 +19,9 @@
   <a href="https://www.npmjs.com/package/@nauverse/react-aurora-background">
     <img src="https://img.shields.io/npm/v/@nauverse/react-aurora-background.svg?style=flat" alt="npm version">
   </a>
+  <a href="https://bundlephobia.com/result?p=@nauverse/react-aurora-background">
+    <img src="https://img.shields.io/bundlephobia/minzip/%40nauverse/react-aurora-background" alt="minzipped size">
+  </a>
   <a href="https://github.com/TheNaubit/react-aurora-background/blob/main/LICENSE">
     <img src="https://img.shields.io/npm/l/@nauverse/react-aurora-background.svg?style=flat" alt="license">
   </a>
@@ -31,7 +34,9 @@
   <a href="#props">Props</a> •
   <a href="#performance">Performance</a> •
   <a href="#browser-support">Browser support</a> •
-  <a href="#upgrading-from-1x">Upgrading from 1.x</a>
+  <a href="#upgrading-from-1x">Upgrading from 1.x</a> •
+  <a href="#help">Help</a> •
+  <a href="#contributing">Contributing</a>
 </p>
 
 ## Features
@@ -142,9 +147,15 @@ The props are the same, so most apps only need to update the package. Things tha
 - The `AuroraBackground` layer is exported, for custom layouts.
 - Node.js 22 or later is required to install the package.
 
+## Help
+
+Thank you for using *react-aurora-background*!
+
+If you need any help using this library, feel free to [create a GitHub issue](https://github.com/TheNaubit/react-aurora-background/issues/new/choose) and ask your questions. I'll try to answer as quickly as possible.
+
 ## Contributing
 
-Contributions of any kind are welcome! Read the [contributing guide](./CONTRIBUTING.md) to get started (and [AGENTS.md](./AGENTS.md) if you use a coding agent). Found a bug? [Open an issue](https://github.com/TheNaubit/react-aurora-background/issues/new/choose).
+Contributions of any kind are welcome! Read the [contributing guide](./CONTRIBUTING.md) to get started (and [AGENTS.md](./AGENTS.md) if you use a coding agent). Found a bug? [Open an issue](https://github.com/TheNaubit/react-aurora-background/issues/new/choose). Please follow the [code of conduct](./CODE_OF_CONDUCT.md).
 
 ## Changelog
 
