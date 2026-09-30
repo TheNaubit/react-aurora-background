@@ -38,25 +38,15 @@ export function toCSS([r, g, b, a]: RGBA): string {
 	return `rgba(${channel(r)}, ${channel(g)}, ${channel(b)}, ${Number(a.toFixed(3))})`;
 }
 
-/**
- * Resolves any color the browser understands (oklch(), color(), var(--x), currentColor...) by letting the browser compute and draw it.
- *
- * @param color - The CSS color.
- * @param element - An element in the document, used to resolve CSS variables and currentColor.
- * @returns The color, or null if the browser does not understand it.
- */
-export function resolveColorInBrowser(
-	color: string,
-	element: HTMLElement,
-): RGBA | null {
-	try {
-		const probe = document.createElement("span");
-		probe.style.color = color;
-		if (probe.style.color === "") return null;
-		(element.parentElement ?? document.body).append(probe);
-		const computed = getComputedStyle(probe).color;
-		probe.remove();
+const TRANSPARENT: RGBA = [0, 0, 0, 0];
 
+/**
+ * Converts a color computed by the browser (like "oklch(0.7 0.1 200)" or "rgb(1 2 3)") to channels, by drawing it on a 2D canvas.
+ *
+ * @returns The color, or null if there is no 2D canvas.
+ */
+export function rasterizeColor(computed: string): RGBA | null {
+	try {
 		const context = document
 			.createElement("canvas")
 			.getContext("2d", { willReadFrequently: true });
@@ -68,4 +58,56 @@ export function resolveColorInBrowser(
 	} catch {
 		return null;
 	}
+}
+
+export interface IColorResolver {
+	(color: string): RGBA;
+	dispose(): void;
+}
+
+/**
+ * Resolves the colors only the browser understands (oklch(), color(), var(--x), currentColor, light-dark()...).
+ * Each color gets a hidden probe element inside the aurora, so CSS variables and currentColor resolve like they would there. Its computed value is read on every call (cheap when nothing changed) and converted again only when it changes, so theme changes are followed.
+ *
+ * @param element - The element the colors are resolved in.
+ * @param rasterize - Converts a computed color to channels.
+ */
+export function createColorResolver(
+	element: HTMLElement,
+	rasterize: (computed: string) => RGBA | null = rasterizeColor,
+): IColorResolver {
+	const probes = new Map<string, HTMLElement>();
+	const cache = new Map<string, { computed: string; color: RGBA }>();
+
+	const probeOf = (color: string): HTMLElement | null => {
+		const existing = probes.get(color);
+		if (existing) return existing;
+		const probe = document.createElement("span");
+		// background-color is not inherited: an undefined variable gives transparent, like in CSS
+		probe.style.backgroundColor = color;
+		if (probe.style.backgroundColor === "") return null;
+		probe.style.display = "none";
+		element.append(probe);
+		probes.set(color, probe);
+		return probe;
+	};
+
+	const resolve = (color: string): RGBA => {
+		const probe = probeOf(color);
+		if (!probe) return TRANSPARENT;
+		const computed = getComputedStyle(probe).backgroundColor;
+		const cached = cache.get(color);
+		if (cached && cached.computed === computed) return cached.color;
+		const resolved = rasterize(computed) ?? TRANSPARENT;
+		cache.set(color, { computed, color: resolved });
+		return resolved;
+	};
+
+	return Object.assign(resolve, {
+		dispose() {
+			for (const probe of probes.values()) probe.remove();
+			probes.clear();
+			cache.clear();
+		},
+	});
 }

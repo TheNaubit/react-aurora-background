@@ -62,7 +62,7 @@ describe("AuroraBackground", () => {
 		act(() => root.render(<AuroraBackground />));
 		expect(canvasOf().style.opacity).toBe("0");
 		expect(
-			(canvasOf().parentElement as HTMLElement).style.background,
+			(canvasOf().parentElement as HTMLElement).style.backgroundImage,
 		).toContain("radial-gradient");
 	});
 

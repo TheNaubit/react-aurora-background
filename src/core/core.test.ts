@@ -3,7 +3,7 @@ import { blobPositionsAt, createBlobPaths, createRandom } from "./blobs.js";
 import { blurToPixels } from "./blur.js";
 import { parseColor, toCSS } from "./color.js";
 import { DEFAULT_ANIM_DURATION, DEFAULT_FPS, resolveConfig } from "./config.js";
-import { fallbackBackground } from "./fallback.js";
+import { fallbackStyle } from "./fallback.js";
 import { createAnimationLoop } from "./loop.js";
 
 describe("parseColor", () => {
@@ -128,18 +128,21 @@ describe("blob paths", () => {
 	});
 });
 
-describe("fallbackBackground", () => {
+describe("fallbackStyle", () => {
 	it("builds CSS gradients with the bubble colors over the background, at their first frame positions", () => {
-		const background = fallbackBackground(
-			resolveConfig({
-				colors: ["#ff0000", "#00ff00"],
-				numBubbles: 2,
-				bgColor: "#0000ff",
-			}),
-		);
-		expect(background).toBe(
-			"radial-gradient(circle at 75.0% 68.0%, #00ff00 0%, transparent 70%), radial-gradient(circle at 43.0% 50.0%, #ff0000 0%, transparent 70%), #0000ff",
-		);
+		expect(
+			fallbackStyle(
+				resolveConfig({
+					colors: ["#ff0000", "#00ff00"],
+					numBubbles: 2,
+					bgColor: "#0000ff",
+				}),
+			),
+		).toEqual({
+			backgroundColor: "rgba(0, 0, 255, 1)",
+			backgroundImage:
+				"radial-gradient(circle at 75.0% 68.0%, rgba(0, 255, 0, 1) 0%, transparent 70%), radial-gradient(circle at 43.0% 50.0%, rgba(255, 0, 0, 1) 0%, transparent 70%)",
+		});
 	});
 });
 

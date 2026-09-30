@@ -114,10 +114,11 @@ describe("createAurora", () => {
 	};
 
 	function start(config = resolveConfig({})) {
-		const canvas = document.createElement("canvas");
+		const container = document.createElement("div");
 		const onReadyChange = vi.fn();
-		const aurora = createAurora(canvas, config, { onReadyChange });
+		const aurora = createAurora(container, config, { onReadyChange });
 		observers.resize(800, 600);
+		const canvas = container.querySelector("canvas") as HTMLCanvasElement;
 		return { canvas, aurora, onReadyChange };
 	}
 

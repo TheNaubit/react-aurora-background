@@ -7,11 +7,9 @@ import {
 } from "react";
 import { createAurora, type IAurora } from "./core/aurora.js";
 import { resolveConfig } from "./core/config.js";
-import { fallbackBackground } from "./core/fallback.js";
+import { FADE_MS } from "./core/dom.js";
+import { fallbackStyle } from "./core/fallback.js";
 import type { AuroraBackgroundConfig } from "./types.js";
-
-// The canvas fades in over the CSS fallback, which is removed once the fade is over
-const FADE_MS = 600;
 
 const LAYER_STYLE: CSSProperties = {
 	position: "absolute",
@@ -19,19 +17,6 @@ const LAYER_STYLE: CSSProperties = {
 	overflow: "hidden",
 	pointerEvents: "none",
 };
-
-function createCanvas(): HTMLCanvasElement {
-	const canvas = document.createElement("canvas");
-	canvas.setAttribute("aria-hidden", "true");
-	Object.assign(canvas.style, {
-		display: "block",
-		width: "100%",
-		height: "100%",
-		opacity: "0",
-		transition: `opacity ${FADE_MS}ms ease`,
-	});
-	return canvas;
-}
 
 /**
  * The aurora layer: it fills its closest positioned parent (position: relative, absolute or fixed).
@@ -90,19 +75,13 @@ export function AuroraBackground({
 	useEffect(() => {
 		const layer = layerRef.current;
 		if (!layer) return;
-		// A new canvas for every mount: a WebGL context can not be used again once it is released
-		const canvas = createCanvas();
-		layer.append(canvas);
-		const aurora = createAurora(canvas, configRef.current, {
-			onReadyChange: (ready) => {
-				canvas.style.opacity = ready ? "1" : "0";
-				setIsReady(ready);
-			},
+		// The aurora creates its canvas (a new one for every mount: a WebGL context can not be used again once it is released)
+		const aurora = createAurora(layer, configRef.current, {
+			onReadyChange: setIsReady,
 		});
 		auroraRef.current = aurora;
 		return () => {
 			aurora.destroy();
-			canvas.remove();
 			auroraRef.current = null;
 		};
 	}, []);
@@ -121,7 +100,7 @@ export function AuroraBackground({
 		return () => clearTimeout(timeout);
 	}, [isReady]);
 
-	const background = useMemo(() => fallbackBackground(config), [config]);
+	const fallback = useMemo(() => fallbackStyle(config), [config]);
 
 	return (
 		<div
@@ -130,7 +109,7 @@ export function AuroraBackground({
 			className={className}
 			style={{
 				...LAYER_STYLE,
-				...(showFallback ? { background } : {}),
+				...(showFallback ? fallback : {}),
 				...style,
 			}}
 		/>

@@ -4,7 +4,7 @@ import { renderToString } from "react-dom/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { createAurora } from "./core/aurora.js";
 import { resolveConfig } from "./core/config.js";
-import { fallbackBackground } from "./core/fallback.js";
+import { fallbackStyle } from "./core/fallback.js";
 import { AuroraBackground } from "./index.js";
 import {
 	createFakeGL,
@@ -82,24 +82,24 @@ describe("fallback", () => {
 		act(() => root.render(<AuroraBackground bgColor="transparent" />));
 		act(() => observers.resize(800, 600));
 		const layer = container.firstElementChild as HTMLElement;
-		expect(layer.style.background).toContain("radial-gradient");
+		expect(layer.style.backgroundImage).toContain("radial-gradient");
 
 		act(() => {
 			vi.advanceTimersByTime(1000);
 		});
-		expect(layer.style.background).toBe("");
+		expect(layer.style.backgroundImage).toBe("");
 
 		const canvas = container.querySelector("canvas") as HTMLCanvasElement;
 		act(() => {
 			canvas.dispatchEvent(new Event("webglcontextlost", { cancelable: true }));
 		});
-		expect(layer.style.background).toContain("radial-gradient");
+		expect(layer.style.backgroundImage).toContain("radial-gradient");
 	});
 
 	it("places the bubbles where the first WebGL frame draws them", () => {
-		const background = fallbackBackground(resolveConfig({ numBubbles: 2 }));
+		const { backgroundImage } = fallbackStyle(resolveConfig({ numBubbles: 2 }));
 		// The first bubble orbits around (25%, 50%): at t=0 it is at phase 0, 18% to the right
-		expect(background).toContain("at 43.0% 50.0%");
+		expect(backgroundImage).toContain("at 43.0% 50.0%");
 	});
 
 	it("uses the CSS colors as written, so any CSS color works on the server", () => {
@@ -118,23 +118,26 @@ describe("colors the parser does not know", () => {
 	it("are resolved by the browser", () => {
 		const gl = createFakeGL();
 		mockGetContext({ webgl2: gl });
-		const canvas = document.createElement("canvas");
-		document.body.append(canvas);
-		const resolveColor = vi.fn(() => [1, 0.5, 0, 1] as const);
+		const container = document.createElement("div");
+		document.body.append(container);
+		const resolve = vi.fn(() => [1, 0.5, 0, 1] as const);
 		createAurora(
-			canvas,
+			container,
 			resolveConfig({
 				colors: ["oklch(70% 0.2 30)"],
 				numBubbles: 2,
 				paused: true,
 			}),
-			{ onReadyChange: () => {}, resolveColor },
+			{
+				onReadyChange: () => {},
+				createResolver: () => Object.assign(resolve, { dispose: vi.fn() }),
+			},
 		);
 		observers.resize(800, 600);
-		expect(resolveColor).toHaveBeenCalledWith("oklch(70% 0.2 30)", canvas);
+		expect(resolve).toHaveBeenCalledWith("oklch(70% 0.2 30)");
 		const colors = gl.uniform4fv.mock.calls.at(-1)?.[1] as Float32Array;
 		expect(Array.from(colors.slice(0, 4))).toEqual([1, 0.5, 0, 1]);
-		canvas.remove();
+		container.remove();
 	});
 });
 
@@ -145,8 +148,9 @@ describe("zero size", () => {
 		const requestFrame = vi.fn(() => 1);
 		vi.stubGlobal("requestAnimationFrame", requestFrame);
 		vi.stubGlobal("cancelAnimationFrame", vi.fn());
-		const canvas = document.createElement("canvas");
-		createAurora(canvas, resolveConfig({}), { onReadyChange: () => {} });
+		createAurora(document.createElement("div"), resolveConfig({}), {
+			onReadyChange: () => {},
+		});
 		observers.resize(0, 0);
 		expect(requestFrame).not.toHaveBeenCalled();
 		observers.resize(800, 600);
@@ -164,7 +168,7 @@ describe("old Safari", () => {
 		);
 		mockGetContext({ webgl2: createFakeGL() });
 		const aurora = createAurora(
-			document.createElement("canvas"),
+			document.createElement("div"),
 			resolveConfig({}),
 			{ onReadyChange: () => {} },
 		);
