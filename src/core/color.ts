@@ -37,3 +37,35 @@ export function toCSS([r, g, b, a]: RGBA): string {
 	const channel = (value: number) => Math.round(value * 255);
 	return `rgba(${channel(r)}, ${channel(g)}, ${channel(b)}, ${Number(a.toFixed(3))})`;
 }
+
+/**
+ * Resolves any color the browser understands (oklch(), color(), var(--x), currentColor...) by letting the browser compute and draw it.
+ *
+ * @param color - The CSS color.
+ * @param element - An element in the document, used to resolve CSS variables and currentColor.
+ * @returns The color, or null if the browser does not understand it.
+ */
+export function resolveColorInBrowser(
+	color: string,
+	element: HTMLElement,
+): RGBA | null {
+	try {
+		const probe = document.createElement("span");
+		probe.style.color = color;
+		if (probe.style.color === "") return null;
+		(element.parentElement ?? document.body).append(probe);
+		const computed = getComputedStyle(probe).color;
+		probe.remove();
+
+		const context = document
+			.createElement("canvas")
+			.getContext("2d", { willReadFrequently: true });
+		if (!context) return null;
+		context.fillStyle = computed;
+		context.fillRect(0, 0, 1, 1);
+		const [r = 0, g = 0, b = 0, a = 0] = context.getImageData(0, 0, 1, 1).data;
+		return [r / 255, g / 255, b / 255, a / 255];
+	} catch {
+		return null;
+	}
+}

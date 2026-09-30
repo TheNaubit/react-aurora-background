@@ -129,7 +129,7 @@ describe("blob paths", () => {
 });
 
 describe("fallbackBackground", () => {
-	it("builds CSS gradients with the bubble colors over the background", () => {
+	it("builds CSS gradients with the bubble colors over the background, at their first frame positions", () => {
 		const background = fallbackBackground(
 			resolveConfig({
 				colors: ["#ff0000", "#00ff00"],
@@ -138,7 +138,7 @@ describe("fallbackBackground", () => {
 			}),
 		);
 		expect(background).toBe(
-			"radial-gradient(circle at 75.0% 50.0%, rgba(0, 255, 0, 1) 0%, rgba(0, 255, 0, 0) 70%), radial-gradient(circle at 25.0% 50.0%, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 0, 0) 70%), rgba(0, 0, 255, 1)",
+			"radial-gradient(circle at 75.0% 68.0%, #00ff00 0%, transparent 70%), radial-gradient(circle at 43.0% 50.0%, #ff0000 0%, transparent 70%), #0000ff",
 		);
 	});
 });

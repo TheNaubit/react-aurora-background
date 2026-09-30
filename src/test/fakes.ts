@@ -42,6 +42,7 @@ export function createFakeGL(
 		uniform4fv: vi.fn(),
 		viewport: vi.fn(),
 		drawArrays: vi.fn(),
+		getExtension: vi.fn((): { loseContext: () => void } | null => null),
 	};
 }
 

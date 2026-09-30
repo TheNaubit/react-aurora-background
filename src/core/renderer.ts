@@ -142,6 +142,8 @@ export function createRenderer(canvas: HTMLCanvasElement): IRenderer | null {
 		destroy() {
 			gl.deleteBuffer(buffer);
 			gl.deleteProgram(program);
+			// Browsers keep a limited number of WebGL contexts (about 16): release this one now instead of waiting for the garbage collector, or other auroras get evicted
+			gl.getExtension("WEBGL_lose_context")?.loseContext();
 		},
 	};
 }

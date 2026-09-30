@@ -14,9 +14,12 @@ const DEFAULT_COLORS: Array<Color> = [
 
 function detectRenderer(): string {
 	const canvas = document.createElement("canvas");
-	if (canvas.getContext("webgl2")) return "WebGL 2";
-	if (canvas.getContext("webgl")) return "WebGL 1";
-	return "CSS fallback (no WebGL)";
+	const webgl2 = canvas.getContext("webgl2");
+	const gl = webgl2 ?? canvas.getContext("webgl");
+	// Release the test context right away: browsers keep a limited number of WebGL contexts
+	gl?.getExtension("WEBGL_lose_context")?.loseContext();
+	if (webgl2) return "WebGL 2";
+	return gl ? "WebGL 1" : "CSS fallback (no WebGL)";
 }
 
 const styles = {

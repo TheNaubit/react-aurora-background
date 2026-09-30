@@ -46,8 +46,9 @@ describe("server rendering", () => {
 			);
 		const html = render();
 
-		expect(html).toContain("radial-gradient(circle at 25.0% 25.0%");
-		expect(html).toContain("<canvas");
+		expect(html).toContain("radial-gradient(circle at 43.0% 25.0%");
+		// The canvas is only created in the browser
+		expect(html).not.toContain("<canvas");
 		expect(html).toContain("<p>Hello</p>");
 		expect(html).toContain('class="app"');
 		// The same markup every time, so hydration never mismatches

@@ -21,6 +21,9 @@ const MAX_FPS = 60;
 export interface IResolvedConfig {
 	colors: ReadonlyArray<RGBA>;
 	bgColor: RGBA;
+	// The colors as written, for CSS (the server fallback) and for colors the parser does not know (oklch(), var()...)
+	colorSources: ReadonlyArray<string>;
+	bgColorSource: string;
 	numBubbles: number;
 	animDuration: number;
 	blurAmount: number | string;
@@ -49,11 +52,17 @@ export function resolveConfig(config: AuroraBackgroundConfig): IResolvedConfig {
 		config.colors && config.colors.length > 0 ? config.colors : DEFAULT_COLORS;
 	const animDuration = finiteOr(config.animDuration, DEFAULT_ANIM_DURATION);
 
+	const colorSources = Array.from(
+		{ length: numBubbles },
+		(_, index) => palette[index % palette.length] as string,
+	);
+	const bgColorSource = config.bgColor ?? DEFAULT_BG_COLOR;
+
 	return {
-		colors: Array.from({ length: numBubbles }, (_, index) =>
-			parseColor(palette[index % palette.length] as string),
-		),
-		bgColor: parseColor(config.bgColor ?? DEFAULT_BG_COLOR),
+		colors: colorSources.map(parseColor),
+		bgColor: parseColor(bgColorSource),
+		colorSources,
+		bgColorSource,
 		numBubbles,
 		animDuration: animDuration > 0 ? animDuration : DEFAULT_ANIM_DURATION,
 		blurAmount: config.blurAmount ?? DEFAULT_BLUR_AMOUNT,

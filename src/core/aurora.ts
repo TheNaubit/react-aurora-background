@@ -1,5 +1,6 @@
 import { blobPositionsAt, createBlobPaths, type IBlobPath } from "./blobs.js";
 import { blurToPixels } from "./blur.js";
+import { type RGBA, resolveColorInBrowser } from "./color.js";
 import type { IResolvedConfig } from "./config.js";
 import { createAnimationLoop } from "./loop.js";
 import { createRenderer, type IRenderer } from "./renderer.js";
@@ -15,7 +16,11 @@ export interface IAurora {
 interface IAuroraOptions {
 	/** Called when the WebGL rendering starts (true) or stops working (false, the CSS fallback stays visible). */
 	onReadyChange: (ready: boolean) => void;
+	/** Resolves the colors the parser does not know (oklch(), var()...). */
+	resolveColor?: (color: string, element: HTMLElement) => RGBA | null;
 }
+
+const TRANSPARENT: RGBA = [0, 0, 0, 0];
 
 /**
  * The internal size of the canvas for an element size: at most MAX_RENDER_SIZE on the longest side.
@@ -26,6 +31,33 @@ export function renderSize(width: number, height: number): [number, number] {
 		Math.max(1, Math.round(width * scale)),
 		Math.max(1, Math.round(height * scale)),
 	];
+}
+
+// Safari 13 and older only have addListener and removeListener on media queries
+type LegacyMediaQueryList = MediaQueryList & {
+	addListener?: (listener: () => void) => void;
+	removeListener?: (listener: () => void) => void;
+};
+
+function listenTo(query: LegacyMediaQueryList | null, listener: () => void) {
+	if (!query) return;
+	if (typeof query.addEventListener === "function") {
+		query.addEventListener("change", listener);
+	} else {
+		query.addListener?.(listener);
+	}
+}
+
+function stopListeningTo(
+	query: LegacyMediaQueryList | null,
+	listener: () => void,
+) {
+	if (!query) return;
+	if (typeof query.removeEventListener === "function") {
+		query.removeEventListener("change", listener);
+	} else {
+		query.removeListener?.(listener);
+	}
 }
 
 const reducedMotionQuery = () =>
@@ -39,7 +71,7 @@ const reducedMotionQuery = () =>
 export function createAurora(
 	canvas: HTMLCanvasElement,
 	initialConfig: IResolvedConfig,
-	{ onReadyChange }: IAuroraOptions,
+	{ onReadyChange, resolveColor = resolveColorInBrowser }: IAuroraOptions,
 ): IAurora {
 	let config = initialConfig;
 	let renderer: IRenderer | null = null;
@@ -49,6 +81,20 @@ export function createAurora(
 	let isIntersecting = true;
 	let size = { width: 0, height: 0 };
 	const motionQuery = reducedMotionQuery();
+	const resolvedColors = new Map<string, RGBA>();
+
+	// Colors the parser does not know (like oklch() or var(--brand)) parse as transparent: the browser resolves them
+	const colorOf = (parsed: RGBA, source: string): RGBA => {
+		const isUnknown =
+			parsed.every((channel) => channel === 0) &&
+			source.trim().toLowerCase() !== "transparent";
+		if (!isUnknown) return parsed;
+		const cached = resolvedColors.get(source);
+		if (cached) return cached;
+		const resolved = resolveColor(source, canvas) ?? TRANSPARENT;
+		resolvedColors.set(source, resolved);
+		return resolved;
+	};
 
 	const updatePaths = () => {
 		// A random seed is only created in the browser, so the server markup never differs from the first client render
@@ -73,8 +119,10 @@ export function createAurora(
 		};
 		const blur = blurToPixels(config.blurAmount, size, viewport);
 		renderer.render({
-			background: config.bgColor,
-			colors: config.colors,
+			background: colorOf(config.bgColor, config.bgColorSource),
+			colors: config.colors.map((color, index) =>
+				colorOf(color, config.colorSources[index] ?? ""),
+			),
 			blobs: blobPositionsAt(paths, time, config.animDuration),
 			softness: blur / Math.max(size.width, size.height),
 		});
@@ -84,6 +132,8 @@ export function createAurora(
 
 	const shouldAnimate = () =>
 		renderer !== null &&
+		size.width > 0 &&
+		size.height > 0 &&
 		!config.paused &&
 		isIntersecting &&
 		document.visibilityState !== "hidden" &&
@@ -104,7 +154,9 @@ export function createAurora(
 		size = { width, height };
 		if (!renderer) return;
 		renderer.resize(...renderSize(width, height));
+		// Resizing clears the canvas: draw right away instead of waiting for the next frame
 		draw(loop.time());
+		refresh();
 	};
 
 	const start = () => {
@@ -148,7 +200,7 @@ export function createAurora(
 	canvas.addEventListener("webglcontextlost", onContextLost);
 	canvas.addEventListener("webglcontextrestored", onContextRestored);
 	document.addEventListener("visibilitychange", onVisibilityChange);
-	motionQuery?.addEventListener("change", refresh);
+	listenTo(motionQuery, refresh);
 	resizeObserver?.observe(canvas);
 	intersectionObserver?.observe(canvas);
 
@@ -167,7 +219,7 @@ export function createAurora(
 			canvas.removeEventListener("webglcontextlost", onContextLost);
 			canvas.removeEventListener("webglcontextrestored", onContextRestored);
 			document.removeEventListener("visibilitychange", onVisibilityChange);
-			motionQuery?.removeEventListener("change", refresh);
+			stopListeningTo(motionQuery, refresh);
 			resizeObserver?.disconnect();
 			intersectionObserver?.disconnect();
 			renderer?.destroy();
