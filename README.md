@@ -94,11 +94,11 @@ Both components accept the same props (plus `children` for the provider):
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| `colors` | `Color[]` | `["#FC466B", "#3f5efb", "#F8FF00", "#3AD59F"]` | The colors of the bubbles (hex, `rgb()`, `rgba()`, `hsl()`, `hsla()` or named colors). They repeat when there are more bubbles than colors. |
+| `colors` | `Color[]` | `["#FC466B", "#3f5efb", "#F8FF00", "#3AD59F"]` | The colors of the bubbles: any CSS color (hex, `rgb()`, `hsl()`, named colors, and in the browser also `oklch()`, `color()`, CSS variables like `var(--brand)` and `currentColor`). They repeat when there are more bubbles than colors. |
 | `numBubbles` | `2` to `9` | `4` | The number of bubbles (color blobs). |
 | `animDuration` | `number` | `20` | The duration of one animation cycle, in seconds. |
 | `blurAmount` | `number \| string` | `"10vw"` | How soft the bubbles are: a number of pixels or a CSS length (`"80px"`, `"10vw"`, `"10vh"`, `"20%"` of the width, `"5rem"`). |
-| `bgColor` | `Color` | `"#3f5efb"` | The color behind the bubbles. |
+| `bgColor` | `Color` | `"#3f5efb"` | The color behind the bubbles (any CSS color, it can be translucent or `transparent`). |
 | `useRandomness` | `boolean` | `false` | Adds a small random variation to the size, the speed and the position of each bubble. |
 | `fps` | `number` | `30` | The maximum frame rate (1 to 60). The aurora moves slowly, so 30 is smooth and uses half the energy of 60. |
 | `paused` | `boolean` | `false` | Stops the animation. The current frame stays visible. |
