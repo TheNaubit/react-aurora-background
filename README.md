@@ -1,97 +1,151 @@
-# 🌌 React Aurora Component
+<h1 align="center">
+  React Aurora Background
+  <br>
+</h1>
 
-My personal, lightweight, customizable and beautiful take for the typical background aurora effect we see in some websites using the glassmorphism style. Plug and play!
+<p align="center">
+  <img src="https://raw.githubusercontent.com/TheNaubit/react-aurora-background/main/projectImage.jpg" alt="React Aurora Background" width="720" />
+</p>
 
-![React Aurora Component](./projectImage.jpg)
+<h4 align="center">A lightweight, GPU-friendly aurora background for React.</h4>
 
-## 🎞️ Demo
+<p align="center">
+  <a href="https://github.com/TheNaubit/react-aurora-background/actions/workflows/ci.yml">
+    <img src="https://github.com/TheNaubit/react-aurora-background/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI status">
+  </a>
+  <a href="https://github.com/TheNaubit/react-aurora-background/actions/workflows/release.yml">
+    <img src="https://github.com/TheNaubit/react-aurora-background/actions/workflows/release.yml/badge.svg?branch=main" alt="Release status">
+  </a>
+  <a href="https://www.npmjs.com/package/@nauverse/react-aurora-background">
+    <img src="https://img.shields.io/npm/v/@nauverse/react-aurora-background.svg?style=flat" alt="npm version">
+  </a>
+  <a href="https://github.com/TheNaubit/react-aurora-background/blob/main/LICENSE">
+    <img src="https://img.shields.io/npm/l/@nauverse/react-aurora-background.svg?style=flat" alt="license">
+  </a>
+</p>
 
-You can see it working by yourself in this little demo: [https://thenaubit.github.io/react-aurora-background/](https://thenaubit.github.io/react-aurora-background/)
+<p align="center">
+  <a href="https://thenaubit.github.io/react-aurora-background/"><b>Live demo</b></a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#props">Props</a> •
+  <a href="#performance">Performance</a> •
+  <a href="#browser-support">Browser support</a> •
+  <a href="#upgrading-from-1x">Upgrading from 1.x</a>
+</p>
 
-## ✨ Features
+## Features
 
-- Uses TypeScript by default.
-- It has both ESM and CJS modules, as well as type definitions.
-- Minimal - Almost no dependencies!
-- Fast
-- SSR compatible! (and of course, it works in Next.JS 13 as a Server Component!)
-- Customizable. Change everything. Colors, speed, blur...
-- Compatible. It works in Chrome, Edge, Firefox, Webkit... desktop and mobile devices!
+- One tiny WebGL shader instead of blurred DOM elements: smooth on phones, laptops stay quiet
+- Rendered at a low resolution and scaled by the browser (an aurora is blurry anyway), at a capped frame rate
+- Stops completely when it is off-screen, when the tab is hidden or when you pause it
+- A still aurora for users who prefer reduced motion
+- A CSS version rendered on the server: no flash before JavaScript runs, no hydration mismatch, and a fallback when WebGL is not available
+- Works in Chrome, Edge, Firefox and Safari, on desktop and mobile (WebGL 2 or WebGL 1)
+- Server rendering and Next.js App Router support (client component)
+- React 18 and 19, ESM and CommonJS, TypeScript types included, no CSS files to import
 
-## 🔧 How to install?
+## Installation
 
-Just type this in your terminal:
-
-```
+```bash
 npm install @nauverse/react-aurora-background
 ```
 
-Or in case you are using `yarn`:
+## Usage
 
-```
-yarn add @nauverse/react-aurora-background
-```
+Wrap your content with the provider. It fills its parent (100% width and height), so give the parent a size:
 
-Also for `pnpm`:
+```tsx
+import { AuroraBackgroundProvider } from "@nauverse/react-aurora-background";
 
-```
-pnpm i @nauverse/react-aurora-background
-```
-
-## ❓ How to use it?
-
-Just wrap your app with it, like another provider.
-
-```javascript
-// 1. Import the provider
-import { AuroraBackgroundProvider } from '@nauverse/react-aurora-background';
-
-const MyApp = () => {
+export function Hero() {
   return (
-    // 2. Wrap your app with the provider and done!
-    <AuroraBackgroundProvider>
-      // The rest of your app
-    </AuroraBackgroundProvider>
+    <div style={{ height: "100vh" }}>
+      <AuroraBackgroundProvider>
+        <h1>Hello aurora</h1>
+      </AuroraBackgroundProvider>
+    </div>
   );
-};
+}
 ```
 
-If you want an example, you can check this [one](https://github.com/TheNaubit/react-aurora-background/blob/main/docs/docs.tsx).
+Or place the aurora layer alone inside any positioned element:
 
-### 🛠️ Settings
+```tsx
+import { AuroraBackground } from "@nauverse/react-aurora-background";
 
-You can set some props to the provider to customize the behavior:
-|Prop Name |Description |Default Value |
-|--- |--- |--- |
-|colors |It contains an array of color strings (hex, rgb or rgba) that will be used in the aurora background. |["#FC466B", "#3f5efb", "#F8FF00", "#3AD59F"] |
-|numBubbles |It is the number of bubbles that creates the aurora effect. It can be an integer between 2 and 9 (both inclusive). I recommend to pick a number closer to the middle for the best experience. |4 |
-|animDuration |It is a number greater than 0 (can be decimal). It is the duration in seconds of the aurora animation before it loops. |5 (seconds) |
-|blurAmount |It can be a number or a string. It specifies the amount of blur the aurora will have. It sets a backdropFilter CSS property so the value must be a valid CSS value. If you pass a number, it will be converted to pixels by appending a "px" string after the number. If you pass a string, it must be a valid CSS value (like "5vw", "100%"...). |"10vw" |
-|bgColor |It is the color of the background of the div containing the aurora. It is a color string (hex, rgb or rgba). |"#3f5efb" |
-|useRandomness |It is a boolean. If enabled, instead of using always the same values for width, height and animation-delay properties on each bubble item, it will add some small randomness. |false |
-|className |An optional string containing the extra class/classes to be added to the container. |<empty> |
-|style |An optional object containing styles to be added to the container. |<empty> |
+export function Card() {
+  return (
+    <div style={{ position: "relative", height: 300 }}>
+      <AuroraBackground colors={["#ff6b6b", "#845ef7"]} numBubbles={3} />
+      <p style={{ position: "relative" }}>Content on top</p>
+    </div>
+  );
+}
+```
 
-## 🐛 Bugs, Issues and Contributing
+### Next.js and server rendering
 
-This is an Open Source package so feel free to create an Issue or a Pull Request (or even to Fork it) if you want!
+The components are client components (the package starts with `"use client"`), so you can use them directly in App Router pages and layouts. On the server they render the still CSS aurora, and the animated version fades in once the page is interactive.
 
-## 🐣 About me!
+## Props
 
-Find me on Twitter: [@naucode](https://twitter.com/naucode)
+Both components accept the same props (plus `children` for the provider):
 
-## 💭 Changelog
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `colors` | `Color[]` | `["#FC466B", "#3f5efb", "#F8FF00", "#3AD59F"]` | The colors of the bubbles (hex, `rgb()`, `rgba()`, `hsl()`, `hsla()` or named colors). They repeat when there are more bubbles than colors. |
+| `numBubbles` | `2` to `9` | `4` | The number of bubbles (color blobs). |
+| `animDuration` | `number` | `20` | The duration of one animation cycle, in seconds. |
+| `blurAmount` | `number \| string` | `"10vw"` | How soft the bubbles are: a number of pixels or a CSS length (`"80px"`, `"10vw"`, `"10vh"`, `"20%"` of the width, `"5rem"`). |
+| `bgColor` | `Color` | `"#3f5efb"` | The color behind the bubbles. |
+| `useRandomness` | `boolean` | `false` | Adds a small random variation to the size, the speed and the position of each bubble. |
+| `fps` | `number` | `30` | The maximum frame rate (1 to 60). The aurora moves slowly, so 30 is smooth and uses half the energy of 60. |
+| `paused` | `boolean` | `false` | Stops the animation. The current frame stays visible. |
+| `respectReducedMotion` | `boolean` | `true` | Shows a still aurora when the user prefers reduced motion. |
+| `className` | `string` | | Extra class names for the container. |
+| `style` | `CSSProperties` | | Extra styles for the container. |
 
-- **v1.0.12:** Improved the internal structure 🔧
-- **v1.0.11:** Added extra props and fixed build issues 🔧
-- **v1.0.10:** Updated dependencies and fixed broken links 🔗
-- **v1.0.9:** Improved default settings ✨
-- **v1.0.8:** Fixed Firefox support 🔧
-- **v1.0.7:** Fixed iOS blur issue 🔧
-- **v1.0.6:** Added some performance improvements (now we use the GPU when possible) ✨
-- **v1.0.5:** Fixed optimization in bubble items 🔧
-- **v1.0.4:** Fixed build generation - part 2 🔧
-- **v1.0.3:** Fixed build generation 🔧
-- **v1.0.2:** Fixed demo link 🔧
-- **v1.0.1:** Fixed docs 🔧
-- **v1.0.0:** This is the first public version of the package, let's go! 🚀
+## Performance
+
+Version 1 drew every bubble as a full-size element with a huge CSS `blur()` filter and animated its shape, so the browser recomputed large blurs on every frame. Version 2 draws the whole aurora with one small shader:
+
+- **Low resolution**: at most 256 pixels on the longest side, scaled by the browser. The result looks the same because the aurora is blurry.
+- **Capped frame rate**: 30 frames per second by default.
+- **No work when you can not see it**: off-screen (IntersectionObserver), hidden tabs and `paused` stop the render loop.
+- **Low-power GPU**: laptops with two GPUs keep using the integrated one.
+
+Measured on the same full-screen page (Chromium, Apple M5, 10 seconds, CPU time of the page's renderer and of the GPU process):
+
+| Version | Screen | Renderer | GPU process |
+| ------- | ------ | -------- | ----------- |
+| 1.0.12 | Desktop 1440x900 @2x | 4.6% | 20.0% |
+| 2.0.0 | Desktop 1440x900 @2x | 2.7% | 3.4% |
+| 1.0.12 | Phone 390x844 @3x | 5.3% | 15.0% |
+| 2.0.0 | Phone 390x844 @3x | 3.2% | 3.9% |
+| 2.0.0 | Scrolled off-screen | 0.0% | 0.3% |
+
+## Browser support
+
+The aurora uses WebGL 2, or WebGL 1 on older browsers, and was tested in Chromium, Firefox and WebKit (Safari), on desktop and phone screens. Without WebGL (or when a mobile browser drops the WebGL context in the background) the still CSS version stays visible, and the animation comes back when the context is restored.
+
+## Upgrading from 1.x
+
+The props are the same, so most apps only need to update the package. Things that change:
+
+- The aurora is drawn by a WebGL shader: it looks very close, but not identical, to the CSS bubbles.
+- `blurAmount` no longer sets a CSS `backdrop-filter`: it controls how soft the bubbles are (same units).
+- React 18 or 19 is required, and the package no longer imports CSS module files (no bundler setup needed).
+- The `className` of the provider is added to the container as a separate class (it was glued to an internal class name).
+- Changing `colors`, `blurAmount` or `animDuration` after the first render now updates the aurora.
+- New props: `fps`, `paused` and `respectReducedMotion` (reduced motion shows a still aurora by default).
+- The `AuroraBackground` layer is exported, for custom layouts.
+- Node.js 22 or later is required to install the package.
+
+## Contributing
+
+Contributions of any kind are welcome! Read the [contributing guide](./CONTRIBUTING.md) to get started (and [AGENTS.md](./AGENTS.md) if you use a coding agent). Found a bug? [Open an issue](https://github.com/TheNaubit/react-aurora-background/issues/new/choose).
+
+## Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md).

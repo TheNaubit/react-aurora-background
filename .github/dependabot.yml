@@ -1,0 +1,38 @@
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 3
+    # Wait a few days before proposing a freshly published version.
+    cooldown:
+      default-days: 7
+    groups:
+      dev-dependencies:
+        dependency-type: "development"
+        update-types: ["minor", "patch"]
+    ignore:
+      # Matches the minimum supported Node.js major (22)
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+      # The next majors need Node.js 24.15+ (see AGENTS.md)
+      - dependency-name: "@semantic-release/changelog"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@semantic-release/git"
+        update-types: ["version-update:semver-major"]
+    commit-message:
+      prefix: "chore"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 7
+    groups:
+      github-actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: "ci"

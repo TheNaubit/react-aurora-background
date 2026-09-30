@@ -1,0 +1,33 @@
+name: Bug report
+description: The aurora does not render or behave as documented
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: "2.0.0"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser, device and React version
+      placeholder: "Safari 26 on iPhone 15, React 19.3, Next.js 16"
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: The component and the props you use, and what you do.
+      render: tsx
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+      description: A screenshot helps. Say if the demo (https://thenaubit.github.io/react-aurora-background/) shows the same problem, and the renderer it reports.
+    validations:
+      required: true
