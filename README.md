@@ -64,13 +64,13 @@ Wrap your content with the provider. It fills its parent (100% width and height)
 import { AuroraBackgroundProvider } from "@nauverse/react-aurora-background";
 
 export function Hero() {
-  return (
-    <div style={{ height: "100vh" }}>
-      <AuroraBackgroundProvider>
-        <h1>Hello aurora</h1>
-      </AuroraBackgroundProvider>
-    </div>
-  );
+	return (
+		<div style={{ height: "100vh" }}>
+			<AuroraBackgroundProvider>
+				<h1>Hello aurora</h1>
+			</AuroraBackgroundProvider>
+		</div>
+	);
 }
 ```
 
@@ -80,12 +80,12 @@ Or place the aurora layer alone inside any positioned element:
 import { AuroraBackground } from "@nauverse/react-aurora-background";
 
 export function Card() {
-  return (
-    <div style={{ position: "relative", height: 300 }}>
-      <AuroraBackground colors={["#ff6b6b", "#845ef7"]} numBubbles={3} />
-      <p style={{ position: "relative" }}>Content on top</p>
-    </div>
-  );
+	return (
+		<div style={{ position: "relative", height: 300 }}>
+			<AuroraBackground colors={["#ff6b6b", "#845ef7"]} numBubbles={3} />
+			<p style={{ position: "relative" }}>Content on top</p>
+		</div>
+	);
 }
 ```
 
@@ -97,24 +97,23 @@ The components are client components (the package starts with `"use client"`), s
 
 Both components accept the same props (plus `children` for the provider):
 
-| Prop | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| `colors` | `Color[]` | `["#FC466B", "#3f5efb", "#F8FF00", "#3AD59F"]` | The colors of the bubbles: any CSS color (hex, `rgb()`, `hsl()`, named colors, and in the browser also `oklch()`, `color()`, CSS variables like `var(--brand)` and `currentColor`). They repeat when there are more bubbles than colors. |
-| `numBubbles` | `2` to `9` | `4` | The number of bubbles (color blobs). |
-| `animDuration` | `number` | `20` | The duration of one animation cycle, in seconds. |
-| `blurAmount` | `number \| string` | `"10vw"` | How soft the bubbles are: a number of pixels or a CSS length (`"80px"`, `"10vw"`, `"10vh"`, `"20%"` of the width, `"5rem"`). |
-| `bgColor` | `Color` | `"#3f5efb"` | The color behind the bubbles (any CSS color, it can be translucent or `transparent`). |
-| `useRandomness` | `boolean` | `false` | Adds a small random variation to the size, the speed and the position of each bubble. |
-| `fps` | `number` | `30` | The maximum frame rate (1 to 60). The aurora moves slowly, so 30 is smooth and uses half the energy of 60. |
-| `paused` | `boolean` | `false` | Stops the animation. The current frame stays visible. |
-| `respectReducedMotion` | `boolean` | `true` | Shows a still aurora when the user prefers reduced motion. |
-| `className` | `string` | | Extra class names for the container. |
-| `style` | `CSSProperties` | | Extra styles for the container. |
+| Prop                   | Type               | Default                                        | Description                                                                                                                                                                                                                              |
+| ---------------------- | ------------------ | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `colors`               | `Color[]`          | `["#FC466B", "#3f5efb", "#F8FF00", "#3AD59F"]` | The colors of the bubbles: any CSS color (hex, `rgb()`, `hsl()`, named colors, and in the browser also `oklch()`, `color()`, CSS variables like `var(--brand)` and `currentColor`). They repeat when there are more bubbles than colors. |
+| `numBubbles`           | `2` to `9`         | `4`                                            | The number of bubbles (color blobs).                                                                                                                                                                                                     |
+| `animDuration`         | `number`           | `20`                                           | The duration of one animation cycle, in seconds.                                                                                                                                                                                         |
+| `blurAmount`           | `number \| string` | `"10vw"`                                       | How soft the bubbles are: a number of pixels or a CSS length (`"80px"`, `"10vw"`, `"10vh"`, `"20%"` of the width, `"5rem"`).                                                                                                             |
+| `bgColor`              | `Color`            | `"#3f5efb"`                                    | The color behind the bubbles (any CSS color, it can be translucent or `transparent`).                                                                                                                                                    |
+| `useRandomness`        | `boolean`          | `false`                                        | Adds a small random variation to the size, the speed and the position of each bubble.                                                                                                                                                    |
+| `fps`                  | `number`           | `30`                                           | The maximum frame rate (1 to 60). The aurora moves slowly, so 30 is smooth and uses half the energy of 60.                                                                                                                               |
+| `paused`               | `boolean`          | `false`                                        | Stops the animation. The current frame stays visible.                                                                                                                                                                                    |
+| `respectReducedMotion` | `boolean`          | `true`                                         | Shows a still aurora when the user prefers reduced motion.                                                                                                                                                                               |
+| `className`            | `string`           |                                                | Extra class names for the container.                                                                                                                                                                                                     |
+| `style`                | `CSSProperties`    |                                                | Extra styles for the container.                                                                                                                                                                                                          |
 
 ## Performance
 
 Version 1 drew every bubble as a full-size element with a huge CSS `blur()` filter and animated its shape, so the browser recomputed large blurs on every frame. Version 2 draws the whole aurora with one small shader:
-
 - **Low resolution**: at most 256 pixels on the longest side, scaled by the browser. The result looks the same because the aurora is blurry.
 - **Capped frame rate**: 30 frames per second by default.
 - **No work when you can not see it**: off-screen (IntersectionObserver), hidden tabs and `paused` stop the render loop.
@@ -122,13 +121,13 @@ Version 1 drew every bubble as a full-size element with a huge CSS `blur()` filt
 
 Measured on the same full-screen page (Chromium, Apple M5, 10 seconds, CPU time of the page's renderer and of the GPU process):
 
-| Version | Screen | Renderer | GPU process |
-| ------- | ------ | -------- | ----------- |
-| 1.0.12 | Desktop 1440x900 @2x | 4.6% | 20.0% |
-| 2.0.0 | Desktop 1440x900 @2x | 2.7% | 3.4% |
-| 1.0.12 | Phone 390x844 @3x | 5.3% | 15.0% |
-| 2.0.0 | Phone 390x844 @3x | 3.2% | 3.9% |
-| 2.0.0 | Scrolled off-screen | 0.0% | 0.3% |
+| Version | Screen               | Renderer | GPU process |
+| ------- | -------------------- | -------- | ----------- |
+| 1.0.12  | Desktop 1440x900 @2x | 4.6%     | 20.0%       |
+| 2.0.0   | Desktop 1440x900 @2x | 2.7%     | 3.4%        |
+| 1.0.12  | Phone 390x844 @3x    | 5.3%     | 15.0%       |
+| 2.0.0   | Phone 390x844 @3x    | 3.2%     | 3.9%        |
+| 2.0.0   | Scrolled off-screen  | 0.0%     | 0.3%        |
 
 ## Browser support
 
@@ -137,7 +136,6 @@ The aurora uses WebGL 2, or WebGL 1 on older browsers, and was tested in Chromiu
 ## Upgrading from 1.x
 
 The props are the same, so most apps only need to update the package. Things that change:
-
 - The aurora is drawn by a WebGL shader: it looks very close, but not identical, to the CSS bubbles.
 - `blurAmount` no longer sets a CSS `backdrop-filter`: it controls how soft the bubbles are (same units).
 - React 18 or 19 is required, and the package no longer imports CSS module files (no bundler setup needed).
@@ -149,7 +147,7 @@ The props are the same, so most apps only need to update the package. Things tha
 
 ## Help
 
-Thank you for using *react-aurora-background*!
+Thank you for using _react-aurora-background_!
 
 If you need any help using this library, feel free to [create a GitHub issue](https://github.com/TheNaubit/react-aurora-background/issues/new/choose) and ask your questions. I'll try to answer as quickly as possible.
 
