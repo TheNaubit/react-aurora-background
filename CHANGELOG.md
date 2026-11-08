@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/TheNaubit/react-aurora-background/compare/v2.0.0...v2.0.1) (2026-11-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependencies and resolve security advisories ([913b6c6](https://github.com/TheNaubit/react-aurora-background/commit/913b6c6566183af440c4f38fed9d7338b99d7fbe))
+
 # [2.0.0](https://github.com/TheNaubit/react-aurora-background/compare/v1.0.12...v2.0.0) (2026-09-30)
 
 
